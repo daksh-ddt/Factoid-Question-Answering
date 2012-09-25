@@ -3,7 +3,7 @@
 Create an interface to the Solr server
 Created on Thu Jun 14 20:34:44 2012
 
-@author: gavin
+@author: gavin hackeling
 """
 import sunburnt
 
