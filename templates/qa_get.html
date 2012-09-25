@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h1>Factoid Question Answering</h1>
+<h4>Enter your question; candidate answers will be returned in ~2 minutes.<br/>'-D' indicates a disambiguated answer.</h4>
+{% end %}
+
+{% block content %}
+<form method="POST" action="/cleverhans">
+	<div>
+		<input type="text" class="span4" name="question" placeholder="Search" id="question" ></input>
+	</div>
+	<div>
+		<input type="submit" class="span4" value="Search" />
+	</div>
+</form>
+{% end %}
+
+{% block footer %}
+{% end %}
