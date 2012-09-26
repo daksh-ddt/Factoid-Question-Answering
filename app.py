@@ -80,7 +80,7 @@ class CleverHansHandler(tornado.web.RequestHandler):
 
         print "%s results" % len(results)
         for result in results:
-            print "Result: %s" % str(result['text'])
+            print u'Result: %s' % result['text']
             
         rankedAnswerCandidates = alchemy.parseEntities(results, answerType)    
         
