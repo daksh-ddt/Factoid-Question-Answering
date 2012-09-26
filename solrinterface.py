@@ -9,7 +9,8 @@ import sunburnt
 
 class SolrInterface(object):
     def __init__(self):
-        solrAddressFile = open("solr_address.txt", "r")
+        solrAddressFile = open("/home/ubuntu/www/solr_address.txt", "r")
+        #solrAddressFile = open("solr_address.txt", "r")
         solrAddress = solrAddressFile.read()
         solrAddressFile.close()
         self.si = sunburnt.SolrInterface(solrAddress)
