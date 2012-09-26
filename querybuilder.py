@@ -17,7 +17,8 @@ def buildKeywordsList(question):
     # prepend +- to force inclusion/exclusion in search
     #os.chdir('/home/ubuntu/app')
     # Load the stop word list
-    stopListFile = open("static/stopwords/english.txt", "r")
+    #stopListFile = open("static/stopwords/english.txt", "r")
+    stopListFile = open("/home/ubuntu/static/stopwords/english.txt", "r")
     stopList = [line.strip() for line in stopListFile.readlines()]
     stopListFile.close()
     # Filter non-alphanumeric characters from the query
