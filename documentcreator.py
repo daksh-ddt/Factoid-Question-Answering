@@ -35,7 +35,7 @@ def createDocuments(data, number_of_pages):
 def getDescriptions(data, number_of_pages):
     descriptions = []
     for result in data['d']['results']:
-        print result['Description']
+        # print result['Description']
         descriptions.append(result['Description'])
     return descriptions
     
