@@ -20,11 +20,13 @@ class Classifier(object):
         #os.chdir('/home/ubuntu/app/static/pickles')
         
         # open train_coarse pickle
-        self.data_pickle = open('static/pickles/pickle_training_coarse.pkl', 'rb')
+        # self.data_pickle = open('static/pickles/pickle_training_coarse.pkl', 'rb')
+        self.data_pickle = open('/home/ubuntu/www/static/pickles/pickle_training_coarse.pkl', 'rb')
         self.train_coarse = pickle.load(self.data_pickle)
         self.data_pickle.close()
         # open text_clf pickle
-        self.training_pickle = open('static/pickles/pickle_clf_coarse.pkl', 'rb')
+        # self.training_pickle = open('static/pickles/pickle_clf_coarse.pkl', 'rb')
+        self.training_pickle = open('/home/ubuntu/www/static/pickles/pickle_clf_coarse.pkl', 'rb')
         self.text_clf = pickle.load(self.training_pickle)
         self.training_pickle.close()
 
@@ -49,12 +51,14 @@ class Classifier(object):
             #os.chdir('/home/ubuntu/app/static/pickles')
             #open fine data pickle
             print 'opening data pickle: ' + 'pickle_training_%s.pkl' % coarse_category
-            data_pickle = open('static/pickles/pickle_training_%s.pkl' % coarse_category, 'rb')
+            #data_pickle = open('static/pickles/pickle_training_%s.pkl' % coarse_category, 'rb')
+            data_pickle = open('/home/ubuntu/www/static/pickles/pickle_training_%s.pkl' % coarse_category, 'rb')
             train_data= pickle.load(data_pickle)
             data_pickle.close()
             # open text_clf pickle
             print 'opening training pickle: ' + 'pickle_clf_%s.pkl' % coarse_category
-            training_pickle = open('static/pickles/pickle_clf_%s.pkl' % coarse_category, 'rb')
+            #training_pickle = open('static/pickles/pickle_clf_%s.pkl' % coarse_category, 'rb')
+            training_pickle = open('/home/ubuntu/www/static/pickles/pickle_clf_%s.pkl' % coarse_category, 'rb')
             text_clf_fine = pickle.load(training_pickle)
             training_pickle.close()
             # fine prediction
