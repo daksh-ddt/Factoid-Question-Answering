@@ -102,9 +102,9 @@ class CleverHansHandler(tornado.web.RequestHandler):
         
 handlers = [
             (r"/", CleverHansHandler), 
-            (r"/cleverhans",  CleverHansHandler),
-            (r"/about", AboutHandler),
-            (r"/contact", ContactHandler) 
+            (r"/cleverhans/",  CleverHansHandler),
+            (r"/about/", AboutHandler),
+            (r"/contact/", ContactHandler) 
             ]
             
 settings = dict(template_path=os.path.join(os.path.dirname(__file__), "templates"))
