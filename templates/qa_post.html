@@ -74,12 +74,14 @@
                 </a>
               </p>
             </div>
-            <input id="search" name="search" type="" placeholder="Ask a question"
-            class="search">
-            <a class="btn" href="#">
-              Ask
-              <br>
-            </a>
+            <form method="POST" action="/cleverhans">
+              <div>
+                <input type="text" class="search" name="question" placeholder="Ask a question" id="question" ></input>
+              </div>
+              <div>
+                <input type="submit" class="span4" value="Ask" />
+              </div>
+            </form>
           </div>
           <div class="row-fluid">
             <h3>
