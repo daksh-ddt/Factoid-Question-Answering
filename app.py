@@ -54,18 +54,19 @@ class CleverHansHandler(tornado.web.RequestHandler):
         self.render("qa_get.html")
     
     def post(self):
+        print options.apphome
         question = [self.get_argument("question")]
         print question
         
-        keywordsList = querybuilder.buildKeywordsList(question)
+        keywordsList = querybuilder.buildKeywordsList(question, options.apphome)
         print keywordsList
         query = querybuilder.buildQueryString(keywordsList)
         print query
         
-        classifier = answertype.Classifier()
+        classifier = answertype.Classifier(options.apphome)
         answerType = classifier.classifyAnswerType(question)
         
-        solr_interface = solrinterface.SolrInterface()
+        solr_interface = solrinterface.SolrInterface(options.apphome)
         solr_interface.clearIndex()
         
         data = binginterface.search("'" + query + "'")
@@ -82,7 +83,7 @@ class CleverHansHandler(tornado.web.RequestHandler):
         for result in results:
             print 'Result: %s' % result['text'].encode('ascii', 'replace')
             
-        rankedAnswerCandidates = alchemy.parseEntities(results, answerType)    
+        rankedAnswerCandidates = alchemy.parseEntities(results, answerType, options.apphome)    
         
         rankedAnswerCandidatesList = []
         for answer in rankedAnswerCandidates:
@@ -99,6 +100,7 @@ handlers = [
 settings = dict(template_path=os.path.join(os.path.dirname(__file__), "templates"))
 application = tornado.web.Application(handlers, **settings)
 define("port", default=8000, help="run on the given port", type=int)
+define("apphome", default="/home/ubuntu/www", help="the path to the application folder", type=str)
     
 if __name__ == "__main__":
     tornado.options.parse_command_line()

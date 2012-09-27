@@ -30,12 +30,12 @@ answerTypeNEMap = {
 
 # Read the Alchemy API key
 alchemyEndpoint = 'http://access.alchemyapi.com/calls/text/TextGetRankedNamedEntities?'
-# alchemyApiKeyFile = open("api_key.txt", "r")
-alchemyApiKeyFile = open("/home/ubuntu/www/api_key.txt", "r")
+alchemyApiKeyFile = open("api_key.txt", "r")
+#alchemyApiKeyFile = open("/home/ubuntu/www/api_key.txt", "r")
 alchemyApiKey = alchemyApiKeyFile.read()
 alchemyApiKeyFile.close()
 
-def parseEntities(results, answerType):
+def parseEntities(results, answerType, apphome):
     answerFrequencies = defaultdict(int)
     for result in results:
         alchemyParameters = {

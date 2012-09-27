@@ -8,7 +8,7 @@ Created on Mon Sep 24 19:23:50 2012
 #import unicodedata
 import nltk.tokenize.punkt;
 
-def buildKeywordsList(question):
+def buildKeywordsList(question, apphome):
     # encode unicode input as str
     question = question[0].encode('ascii', 'ignore')
     #keywordsList = nltk.word_tokenize(question[0])
@@ -17,8 +17,8 @@ def buildKeywordsList(question):
     # prepend +- to force inclusion/exclusion in search
     #os.chdir('/home/ubuntu/app')
     # Load the stop word list
-    #stopListFile = open("static/stopwords/english.txt", "r")
-    stopListFile = open("/home/ubuntu/www/static/stopwords/english.txt", "r")
+    stopListFile = open("%s/static/stopwords/english.txt" % apphome, "r")
+    #stopListFile = open("/home/ubuntu/www/static/stopwords/english.txt", "r")
     stopList = [line.strip() for line in stopListFile.readlines()]
     stopListFile.close()
     # Filter non-alphanumeric characters from the query
