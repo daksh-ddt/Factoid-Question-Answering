@@ -53,19 +53,19 @@ def parseEntities(results, answerType, apphome):
         alchemy_data = json.load(alchemy_json_data)
         for entity in alchemy_data['entities']:
             if 'disambiguated' in entity:
-                entityName = entity['disambiguated']['name']
+                entityName = entity['disambiguated']['name'].encode('ascii', 'replace')
                 for possibleAnswerType in answerTypeNEMap[answerType]:
                     print 'Possible answer types include %s' % possibleAnswerType
                     if entity['type'].lower() == possibleAnswerType:
-                        print 'Candidate answer (disambiguated): %s' % entityName.encode('ascii', 'replace')
-                        answerFrequencies[entityName].encode('ascii', 'replace') += disambiguatedAnswerWeight
+                        print 'Candidate answer (disambiguated): %s' % entityName
+                        answerFrequencies[entityName] += disambiguatedAnswerWeight
             else:
                 entityName = entity['text']
                 for possibleAnswerType in answerTypeNEMap[answerType]:
                     print 'Possible answer types include %s' % possibleAnswerType
                     if entity['type'].lower() == possibleAnswerType:
-                        print 'Candidate answer (disambiguated): %s' % entityName.encode('ascii', 'replace')
-                        answerFrequencies[entityName].encode('ascii', 'replace') += disambiguatedAnswerWeight
+                        print 'Candidate answer (disambiguated): %s' % entityName
+                        answerFrequencies[entityName] += disambiguatedAnswerWeight
                 
 #                print 'Candidate answer (ambiguous): %s' % entityName
 #                answerFrequencies[entityName] += 1
