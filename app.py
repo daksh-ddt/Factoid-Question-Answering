@@ -48,6 +48,14 @@ from tornado.options import define, options
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("home_get.html")
+
+class AboutHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render("about.html")
+        
+class ContactHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render("contact.html")
         
 class CleverHansHandler(tornado.web.RequestHandler):
     def get(self):
@@ -94,7 +102,9 @@ class CleverHansHandler(tornado.web.RequestHandler):
         
 handlers = [
             (r"/", CleverHansHandler), 
-            (r"/cleverhans",  CleverHansHandler), 
+            (r"/cleverhans",  CleverHansHandler),
+            (r"/about", AboutHandler),
+            (r"/contact", ContactHandler) 
             ]
             
 settings = dict(template_path=os.path.join(os.path.dirname(__file__), "templates"))
