@@ -57,14 +57,14 @@ def parseEntities(results, answerType, apphome):
                 for possibleAnswerType in answerTypeNEMap[answerType]:
                     print 'Possible answer types include %s' % possibleAnswerType
                     if entity['type'].lower() == possibleAnswerType:
-                        print 'Candidate answer (disambiguated): %s' % entityName
+                        print 'Candidate answer (disambiguated): %s' % entityName.encode('ascii', 'replace')
                         answerFrequencies[entityName] += disambiguatedAnswerWeight
             else:
                 entityName = entity['text']
                 for possibleAnswerType in answerTypeNEMap[answerType]:
                     print 'Possible answer types include %s' % possibleAnswerType
                     if entity['type'].lower() == possibleAnswerType:
-                        print 'Candidate answer (disambiguated): %s' % entityName
+                        print 'Candidate answer (disambiguated): %s' % entityName.encode('ascii', 'replace')
                         answerFrequencies[entityName] += disambiguatedAnswerWeight
                 
 #                print 'Candidate answer (ambiguous): %s' % entityName
