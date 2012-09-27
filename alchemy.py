@@ -55,22 +55,22 @@ def parseEntities(results, answerType, apphome):
             if 'disambiguated' in entity:
                 entityName = entity['disambiguated']['name']
                 for possibleAnswerType in answerTypeNEMap[answerType]:
-                    print 'Possible answer types include %s' % possibleAnswerType
+                    print 'Possible answer types include %s' % possibleAnswerType.encode('ascii', 'replace')
                     if entity['type'].lower() == possibleAnswerType:
-                        print 'Candidate answer (disambiguated): %s' % entityName
+                        print 'Candidate answer (disambiguated): %s' % entityName.encode('ascii', 'replace')
                         answerFrequencies[entityName] += disambiguatedAnswerWeight
             else:
                 entityName = entity['text']
                 for possibleAnswerType in answerTypeNEMap[answerType]:
                     print 'Possible answer types include %s' % possibleAnswerType
                     if entity['type'].lower() == possibleAnswerType:
-                        print 'Candidate answer (disambiguated): %s' % entityName
+                        print 'Candidate answer (disambiguated): %s' % entityName.encode('ascii', 'replace')
                         answerFrequencies[entityName] += disambiguatedAnswerWeight
                 
 #                print 'Candidate answer (ambiguous): %s' % entityName
 #                answerFrequencies[entityName] += 1
 
-        print answerFrequencies
+        print answerFrequencies.encode('ascii', 'replace')
         rankedAnswers = sorted(answerFrequencies.iteritems(), reverse=True)
         
     return rankedAnswers
