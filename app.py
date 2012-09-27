@@ -93,7 +93,7 @@ class CleverHansHandler(tornado.web.RequestHandler):
         self.render("qa_post.html", question=question[0], answers=rankedAnswerCandidatesList)
         
 handlers = [
-            (r"/", MainHandler), 
+            (r"/", CleverHansHandler), 
             (r"/cleverhans",  CleverHansHandler), 
             ]
             
