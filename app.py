@@ -98,7 +98,7 @@ define("port", default=8000, help="run on the given port", type=int)
 define("apphome", default="/home/ubuntu/www", help="the path to the application folder", type=str)
     
 if __name__ == "__main__":
-    tornado.options.options['log_prefix'].set('%s/shallowQA.log%s' % (options.apphome))
+    #tornado.options.options['log_prefix'].set('%s/shallowQA.log%s' % (options.apphome))
     tornado.options.parse_command_line()
     application.listen(options.port)
     tornado.ioloop.IOLoop.instance().start()
