@@ -1,38 +1,14 @@
 # -*- coding: utf-8 -*-
 """
-QA - Alder
+ShallowQA v0.5 Alder
 
 Modified on Mon Sep 24 19:23:50 2012
 
 @author: gavin hackeling
 
-# check if query contains ne.
-# if so, need to include as literal in query
-
-# check if keyword is an NE type
-# if so, need to expand search to include instances of NE type
-# newspaper could be NE type
-# need to include keywords that are names of newspapers
-
-# need to store keywords as list initially
-# so that candidate answers can be compared against the keywords
-# and candidate answers that match a keyword can be exluded
-
-# need to include alchemyapi concept tags
-# paragraph tokenize instead of sent tokenize
-
-# test if it is faster to filter documents before adding to solr
-
-# need to work on query expansion ('temperature' -> 'degrees')
-
-# need to selectively apply alchemyAPI. cannot detect dates so no need to apply
-# for 'date' questions. apply alchemy for concept identification instead?
-# (-) alchemy concept identification of dates is poor
-
-# need to find or make rules for identifying dates
-
 """
 import os
+import logging
 
 import answertype
 import querybuilder
@@ -62,6 +38,13 @@ class CleverHansHandler(tornado.web.RequestHandler):
         self.render("qa_get.html")
     
     def post(self):
+        #logging.basicConfig(filename='%s/typed_questions.log' % options.apphome,level=logging.DEBUG)
+        logging.basicConfig(filename='typed_questions.log',
+                            filemode='a',
+                            format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
+                            datefmt='%H:%M:%S',
+                            level=logging.DEBUG)
+      
         print options.apphome
         question = [self.get_argument("question")]
         print question
@@ -73,6 +56,8 @@ class CleverHansHandler(tornado.web.RequestHandler):
         
         classifier = answertype.Classifier(options.apphome)
         answerType = classifier.classifyAnswerType(question)
+        logging.info('%s    %s' % (answerType, question))     
+        self.logger = logging.getLogger('urbanGUI') 
         
         solr_interface = solrinterface.SolrInterface(options.apphome)
         solr_interface.clearIndex()
@@ -113,6 +98,7 @@ define("port", default=8000, help="run on the given port", type=int)
 define("apphome", default="/home/ubuntu/www", help="the path to the application folder", type=str)
     
 if __name__ == "__main__":
+    tornado.options.options['log_prefix'].set('%s/shallowQA.log%s' % (options.apphome))
     tornado.options.parse_command_line()
     application.listen(options.port)
     tornado.ioloop.IOLoop.instance().start()
