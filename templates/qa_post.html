@@ -85,24 +85,48 @@
           </div>
           <div class="row-fluid">
 
-            <h3>
-              You asked,
-            </h3>
-            <div>
-              <p>
-                {{ question }}
-              </p>
+            <div class="span6">
+              <h3>
+                You asked,
+              </h3>
+              <div>
+                <p>
+                  {{ question }}
+                </p>
+              </div>
+              <h3>
+                My best guesses are:
+              </h3>
+              <div>
+                <p>
+                  {% for answer in answers %}
+                  {{ answer }}<br/>
+                  {% end %}
+                </p>
+              </div>
             </div>
-            <h3>
-              My best guesses are:
-            </h3>
-            <div>
-              <p>
-                {% for answer in answers %}
-                {{ answer }}<br/>
-                {% end %}
-              </p>
+
+            <div class="span6">
+              <h3>
+                Some other thing
+              </h3>
+              <div>
+                <p>
+                  {{ question }}
+                </p>
+              </div>
+              <h3>
+                My best guesses are:
+              </h3>
+              <div>
+                <p>
+                  {% for answer in answers %}
+                  {{ answer }}<br/>
+                  {% end %}
+                </p>
+              </div>
             </div>
+
           </div>
         </div>
         <hr>
