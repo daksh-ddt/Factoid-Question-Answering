@@ -39,11 +39,11 @@ class CleverHansHandler(tornado.web.RequestHandler):
     
     def post(self):
         #logging.basicConfig(filename='%s/typed_questions.log' % options.apphome,level=logging.DEBUG)
-        logging.basicConfig(filename='typed_questions.log',
-                            filemode='a',
-                            format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
-                            datefmt='%H:%M:%S',
-                            level=logging.DEBUG)
+#        logging.basicConfig(filename='typed_questions.log',
+#                            filemode='a',
+#                            format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
+#                            datefmt='%H:%M:%S',
+#                            level=logging.DEBUG)
       
         print options.apphome
         question = [self.get_argument("question")]
@@ -56,8 +56,8 @@ class CleverHansHandler(tornado.web.RequestHandler):
         
         classifier = answertype.Classifier(options.apphome)
         answerType = classifier.classifyAnswerType(question)
-        logging.info('%s    %s' % (answerType, question))     
-        self.logger = logging.getLogger('urbanGUI') 
+        #logging.info('%s    %s' % (answerType, question))     
+        #self.logger = logging.getLogger('urbanGUI') 
         
         solr_interface = solrinterface.SolrInterface(options.apphome)
         solr_interface.clearIndex()
