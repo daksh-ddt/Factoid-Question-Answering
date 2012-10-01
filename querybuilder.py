@@ -31,6 +31,5 @@ def buildKeywordsList(question, apphome):
     return keywordsList
     
     
-
 def buildQueryString(keywordsList):
     return " ".join(keywordsList)

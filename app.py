@@ -17,6 +17,7 @@ import documentcreator
 import documentfilter
 import solrinterface
 import alchemy
+import answerparser
 
 import tornado.web, tornado.ioloop
 from tornado.options import define, options
@@ -76,7 +77,8 @@ class CleverHansHandler(tornado.web.RequestHandler):
         for result in results:
             print 'Result: %s' % result['text'].encode('ascii', 'replace')
             
-        rankedAnswerCandidates = alchemy.parseEntities(results, answerType, options.apphome)    
+        #rankedAnswerCandidates = alchemy.parseEntities(results, answerType, options.apphome)
+        rankedAnswerCandidates = answerparser.parseEntities(results, answerType, options.apphome)
         
         rankedAnswerCandidatesList = []
         for answer in rankedAnswerCandidates:
