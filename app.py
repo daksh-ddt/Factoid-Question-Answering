@@ -83,7 +83,7 @@ class CleverHansHandler(tornado.web.RequestHandler):
             print "Answer Candidate: %s" % answer[0].encode('ascii', 'replace')
             rankedAnswerCandidatesList.append(answer[0])
             
-        self.render("qa_post.html", question=question[0], answers=rankedAnswerCandidatesList)
+        self.render("qa_post.html", question=question[0], answers=rankedAnswerCandidatesList, answerType=answerType)
         
 handlers = [
             (r"/", CleverHansHandler), 
