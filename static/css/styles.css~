@@ -1,0 +1,12 @@
+#header {
+	margin:40px 0 40px 0;
+}
+.logo{
+	font-size:48px;
+	color:#19D;
+	font-family: 'Karla', sans-serif;
+}
+
+body {
+
+}
