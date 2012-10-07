@@ -16,7 +16,6 @@ import binginterface
 import documentcreator
 import documentfilter
 import solrinterface
-import alchemy
 import answerparser
 
 import tornado.web, tornado.ioloop
@@ -45,6 +44,56 @@ class CleverHansHandler(tornado.web.RequestHandler):
 #                            format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
 #                            datefmt='%H:%M:%S',
 #                            level=logging.DEBUG)
+
+        answerTypeExpanded = {
+            'code': 'a phone number or identifying code',
+            'count': 'a quantity or frequency',
+            'date': 'a date',
+            'dist': 'a distance or length',
+            'money': 'an amount of money',
+            'ord': 'an ordinal number or rank',
+            'perc': 'a percentage',
+            'period': 'a duration or period',
+            'speed': 'a speed',
+            'temp': 'a temperature',
+            'volsize': 'a volume or size',
+            'weight': 'a weight',
+            'city': 'a city',
+            'country': 'a country',
+            'state': 'a state',
+            'other': 'something unknown',
+            'mount': 'a mountain',
+            'desc': 'a description',
+            'ind': 'the name of a person',
+            'gr': 'a group of people',
+            'title': 'a person\'s title',
+            'animal': 'an animal',
+            'body': 'a body part',
+            'color': 'a color',
+            'cremat': 'a creative work',
+            'currency': 'a currency',
+            'dismed': 'a disease or medicine',
+            'event': 'an historical event',
+            'food': 'a food',
+            'instru': 'an instrument',
+            'lang': 'a language',
+            'letter': 'a letter',
+            'plant': 'a plant',
+            'product': 'a product',
+            'religion': 'a religion',
+            'sport': 'a sport',
+            'substance': 'a substance',
+            'a symbol': 'a symbol',
+            'techmeth': 'a technology or method',
+            'termeq': 'a term',
+            'veh': 'a vehicle',
+            'word': 'a word',
+            'def': 'a definition',
+            'manner': 'a manner or process',
+            'reason': 'a reason',
+            'abb': 'an abbreviation',
+            'exp': 'the backronym for an acronym'
+        }
       
         print options.apphome
         question = [self.get_argument("question")]
@@ -85,7 +134,7 @@ class CleverHansHandler(tornado.web.RequestHandler):
             print "Answer Candidate: %s" % answer[0].encode('ascii', 'replace')
             rankedAnswerCandidatesList.append(answer[0])
             
-        self.render("qa_post.html", question=question[0], answers=rankedAnswerCandidatesList, answerType=answerType)
+        self.render("qa_post.html", question=question[0], answers=rankedAnswerCandidatesList, answerType=answerTypeExpanded[answerType])
         
 handlers = [
             (r"/", CleverHansHandler), 
