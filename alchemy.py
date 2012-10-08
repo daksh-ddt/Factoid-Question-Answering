@@ -8,6 +8,7 @@ import urllib
 import json
 from collections import defaultdict
 from nltk.tokenize import sent_tokenize
+from unidecode import unidecode
 
 disambiguatedAnswerWeight = 2
 
@@ -62,7 +63,7 @@ def parseEntities(results, answerType, keywordsList, apphome):
                         print 'Candidate answer (disambiguated): %s' % entityName
                         sentences = sent_tokenize(result['text'])
                         for sentence in sentences:
-                            print 'Sentence: %s' % sentence
+                            print 'Sentence: %s' % unidecode(sentence)
                             if entityName in sentence:
                                 matches = [key for key in keywordsList if (key.lower() in sentence.lower())]
                                 weight = len(matches) / len(keywordsList) * len(matches) * disambiguatedAnswerWeight
@@ -78,7 +79,7 @@ def parseEntities(results, answerType, keywordsList, apphome):
                         print 'Candidate answer (disambiguated): %s' % entityName.encode('ascii', 'replace')
                         sentences = sent_tokenize(result['text'])
                         for sentence in sentences:
-                            print 'Sentence: %s' % sentence
+                            print 'Sentence: %s' % unidecode(sentence)
                             if entityName in sentence:
                                 matches = [key for key in keywordsList if (key.lower() in sentence.lower())]
                                 print matches
