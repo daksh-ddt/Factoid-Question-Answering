@@ -106,15 +106,25 @@
 
             <div class="span6">
               <h3>
-                My best guesses are:
+                My best guess is:
               </h3>
               <div>
                 <p>
-                  {% for answer in answers %}
+                  {{ answers[0] }}
+                </p>
+              </div>
+              {% if len(answers) > 1 %}
+              <h4>
+                The answer might also be:
+              </h4>
+              <div>
+                <p>
+                  {% for answer in answers[1:] %}
                   {{ answer }}<br/>
                   {% end %}
                 </p>
               </div>
+              {% end %}
             </div>
 
           </div>

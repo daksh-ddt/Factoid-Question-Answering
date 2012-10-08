@@ -7,6 +7,7 @@ Modified on Mon Sep 24 19:23:50 2012
 import urllib
 import json
 from collections import defaultdict
+from nltk.tokenize import sent_tokenize
 
 disambiguatedAnswerWeight = 2
 
@@ -30,7 +31,7 @@ answerTypeNEMap = {
 
 
 
-def parseEntities(results, answerType, apphome):
+def parseEntities(results, answerType, keywordsList, apphome):
     answerFrequencies = defaultdict(int)
     
     # Read the Alchemy API key
@@ -51,24 +52,41 @@ def parseEntities(results, answerType, apphome):
         # get JSON seach results from Alchemy
         alchemy_json_data = urllib.urlopen(alchemyURL)
         alchemy_data = json.load(alchemy_json_data)
-        for entity in alchemy_data['entities']:
+        
+        for entity in alchemy_data['entities']:          
             if 'disambiguated' in entity:
                 entityName = entity['disambiguated']['name'].encode('ascii', 'replace')
                 for possibleAnswerType in answerTypeNEMap[answerType]:
                     print 'Possible answer types include %s' % possibleAnswerType
                     if entity['type'].lower() == possibleAnswerType:
-                        print 'Candidate answer (disambiguated): %s' % entityName.encode('ascii', 'replace')
-                        answerFrequencies[entityName] += disambiguatedAnswerWeight
+                        print 'Candidate answer (disambiguated): %s' % entityName
+                        sentences = sent_tokenize(result['text'])
+                        for sentence in sentences:
+                            print 'Sentence: %s' % sentence
+                            if entityName in sentence:
+                                matches = [key for key in keywordsList if (key.lower() in sentence.lower())]
+                                weight = len(matches) / len(keywordsList) * len(matches) * disambiguatedAnswerWeight
+                                print 'Entity: %s: %s' % (entityName, weight)
+                                answerFrequencies[entityName] += weight
+                            else:
+                                answerFrequencies[entityName] += 0.1
             else:
                 entityName = entity['text']
                 for possibleAnswerType in answerTypeNEMap[answerType]:
                     print 'Possible answer types include %s' % possibleAnswerType
                     if entity['type'].lower() == possibleAnswerType:
                         print 'Candidate answer (disambiguated): %s' % entityName.encode('ascii', 'replace')
-                        answerFrequencies[entityName] += disambiguatedAnswerWeight
-                
-#                print 'Candidate answer (ambiguous): %s' % entityName
-#                answerFrequencies[entityName] += 1
+                        sentences = sent_tokenize(result['text'])
+                        for sentence in sentences:
+                            print 'Sentence: %s' % sentence
+                            if entityName in sentence:
+                                matches = [key for key in keywordsList if (key.lower() in sentence.lower())]
+                                print matches
+                                weight = len(matches) / len(keywordsList) * len(matches) * disambiguatedAnswerWeight
+                                print 'Entity: %s: %s' % (entityName, weight)
+                                answerFrequencies[entityName] += weight
+                            else:
+                                answerFrequencies[entityName] += 0.1
 
         print answerFrequencies
         rankedAnswers = sorted(answerFrequencies.iteritems(), reverse=True)

@@ -13,7 +13,7 @@ import alchemy
 from unidecode import unidecode
 
 
-def parseEntities(results, answerType, apphome):
+def parseEntities(results, answerType, keywordsList, apphome):
     
     answerTypeNEMap = {
         "ind" : ["person"],
@@ -51,7 +51,7 @@ def parseEntities(results, answerType, apphome):
     ]
     
     if answerType in answerTypeNEMap:
-        rankedAnswers = alchemy.parseEntities(results, answerType, apphome)
+        rankedAnswers = alchemy.parseEntities(results, answerType, keywordsList, apphome)
     elif answerType in answerTypePOS:
         rankedAnswers = []
         for result in results:

@@ -127,7 +127,7 @@ class CleverHansHandler(tornado.web.RequestHandler):
             print 'Result: %s' % result['text'].encode('ascii', 'replace')
             
         #rankedAnswerCandidates = alchemy.parseEntities(results, answerType, options.apphome)
-        rankedAnswerCandidates = answerparser.parseEntities(results, answerType, options.apphome)
+        rankedAnswerCandidates = answerparser.parseEntities(results, answerType, keywordsList, options.apphome)
         
         rankedAnswerCandidatesList = []
         for answer in rankedAnswerCandidates:
