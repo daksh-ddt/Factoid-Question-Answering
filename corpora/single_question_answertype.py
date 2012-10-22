@@ -1,10 +1,5 @@
 import os
 import pickle
-from sklearn.datasets import load_files
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.feature_extraction.text import TfidfTransformer
-from sklearn.svm.sparse import LinearSVC
-from sklearn.pipeline import Pipeline
 
 questions = ['Where is the Amazon river located?']
 
