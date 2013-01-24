@@ -13,56 +13,59 @@ class Document(object):
         self.fine = fine
         self.coarse = coarse
         self.id = id
-        
+
 class Classifier(object):
     def __init__(self, apphome):
         #os.chdir('/home/gavin/dev/QA/static/pickles')
         #os.chdir('/home/ubuntu/app/static/pickles')
         self.apphome = apphome
         # open train_coarse pickle
-        self.data_pickle = open('%s/static/pickles/pickle_training_coarse.pkl' % apphome, 'rb')
+        #self.data_pickle = open(
+            #'/home/gavin/dev/Factoid-Question-Answering/corpora/data/coarse.p')
         #self.data_pickle = open('/home/ubuntu/www/static/pickles/pickle_training_coarse.pkl', 'rb')
-        self.train_coarse = pickle.load(self.data_pickle)
-        self.data_pickle.close()
+        #self.train_coarse = pickle.load(self.data_pickle)
+        #self.data_pickle.close()
         # open text_clf pickle
-        self.training_pickle = open('%s/static/pickles/pickle_clf_coarse.pkl' % apphome, 'rb')
-        #self.training_pickle = open('/home/ubuntu/www/static/pickles/pickle_clf_coarse.pkl', 'rb')
+        self.training_pickle = open(
+            '/home/gavin/dev/Factoid-Question-Answering/corpora/data/coarse.p')
+
         self.text_clf = pickle.load(self.training_pickle)
         self.training_pickle.close()
 
-        self.categories = ['HUM', 'LOC', 'NUM', 'ENTY', 'DESC', 'ABBR'] 
+        self.categories = ['HUM', 'LOC', 'NUM', 'ENTY', 'DESC', 'ABBR']
         self.fine_categories = dict(
-    HUM=['desc',  'gr',  'ind',  'title'], 
-    LOC=['city',  'country',  'mount',  'other',  'state'], 
-    NUM=['code',  'count',  'date',  'dist', 'money', 'ord', 'other', 'perc', 'period', 
-         'speed', 'temp', 'volsize', 'weight'], 
-    ABBR=['abb',  'exp'], 
-    DESC=['def' , 'desc',  'manner',  'reason'], 
-    ENTY=['animal', 'body',  'color',  'cremat',  'currency',  'dismed',  'event',  'food',  'instru',  
-          'lang', 'letter',  'other',  'plant',  'product',  'religion',  'sport',  'substance',  'symbol', 
-          'techmeth',  'termeq',  'veh',  'word']
-    )
+            HUM=['desc',  'gr',  'ind',  'title'],
+            LOC=['city',  'country',  'mount',  'other',  'state'],
+            NUM=['code',  'count',  'date',  'dist', 'money', 'ord', 'other', 'perc', 'period',
+                 'speed', 'temp', 'volsize', 'weight'],
+            ABBR=['abb',  'exp'],
+            DESC=['def' , 'desc',  'manner',  'reason'],
+            ENTY=['animal', 'body',  'color',  'cremat',  'currency',  'dismed',  'event',  'food',  'instru',
+                  'lang', 'letter',  'other',  'plant',  'product',  'religion',  'sport',  'substance',  'symbol',
+                  'techmeth',  'termeq',  'veh',  'word']
+        )
 
 
     def classifyAnswerType(self, question):
         predicted = self.text_clf.predict(question)
         for doc, category in zip(question, predicted):
-            coarse_category = self.train_coarse.target_names[category]        
+            coarse_category = self.train_coarse.target_names[category]
             #os.chdir('/home/ubuntu/app/static/pickles')
             #open fine data pickle
-            print 'opening data pickle: ' + 'pickle_training_%s.pkl' % coarse_category
-            data_pickle = open('%s/static/pickles/pickle_training_%s.pkl' % (self.apphome, coarse_category), 'rb')
-            #data_pickle = open('/home/ubuntu/www/static/pickles/pickle_training_%s.pkl' % coarse_category, 'rb')
-            train_data= pickle.load(data_pickle)
-            data_pickle.close()
+            #print 'opening data pickle: ' + 'pickle_training_%s.pkl' % coarse_category
+            #data_pickle = open('%s/static/pickles/pickle_training_%s.pkl' % (self.apphome, coarse_category), 'rb')
+            #data_pickle = open('/home/gavin/dev/Factoid-Question-Answering/corpora/data/fine' % coarse_category, 'rb')
+            #train_data= pickle.load(data_pickle)
+            #data_pickle.close()
             # open text_clf pickle
             print 'opening training pickle: ' + 'pickle_clf_%s.pkl' % coarse_category
-            training_pickle = open('%s/static/pickles/pickle_clf_%s.pkl' % (self.apphome, coarse_category), 'rb')
+            #training_pickle = open('%s/static/pickles/pickle_clf_%s.pkl' % (self.apphome, coarse_category), 'rb')
+            training_pickle = open('/home/gavin/dev/Factoid-Question-Answering/corpora/data/fine/fine_%s.p' % coarse_category)
             #training_pickle = open('/home/ubuntu/www/static/pickles/pickle_clf_%s.pkl' % coarse_category, 'rb')
             text_clf_fine = pickle.load(training_pickle)
             training_pickle.close()
             # fine prediction
             fine_predicted = text_clf_fine.predict(question)
-            answer_type_fine = train_data.target_names[fine_predicted[0]]
+            answer_type_fine = training_pickle.target_names[fine_predicted[0]]
             print 'prediction for: %s is %s' % (doc, answer_type_fine)
             return answer_type_fine

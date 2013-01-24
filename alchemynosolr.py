@@ -12,36 +12,39 @@ disambiguatedAnswerWeight = 2
 
 # Map of Classifier Answer Types to NE types
 answerTypeNEMap = {
-    "ind" : ["person"],
-    "city" : ["city"],
-    "country" : ["country", "StateOrCounty"],
-    "mount" : ["GeographicFeature", "Mountain", "MountainPass", "MountainRange"],
-    "state" : ["StateOrCounty"],
-    "other" : ["Continent", "country", "city", "stateorcounty", "GeographicFeature"],
-    "gr" : ["Organization"],
-    "cremat" : ["PrintMedia", "RadioProgram", "RadioStation", "TelevisionShow", "TelevisionStation",
-                "MusicGroup", "Movie"],
-    "techmeth" : ["Technology"],
-    "religion" : ["ReligiousOrganization", "ReligiousOrder"],
-    "sport" : ["Sport"],
-    "dismed" : ["HealthCondition"]
+    "ind": ["person"],
+    "city": ["city"],
+    "country": ["country", "StateOrCounty"],
+    "mount": ["GeographicFeature", "Mountain", "MountainPass",
+    "MountainRange"],
+    "state": ["StateOrCounty"],
+    "other": ["Continent", "country", "city", "stateorcounty",
+    "GeographicFeature"],
+    "gr": ["Organization"],
+    "cremat": ["PrintMedia", "RadioProgram", "RadioStation", "TelevisionShow",
+    "TelevisionStation", "MusicGroup", "Movie"],
+    "techmeth": ["Technology"],
+    "religion": ["ReligiousOrganization", "ReligiousOrder"],
+    "sport": ["Sport"],
+    "dismed": ["HealthCondition"]
 }
 
 
 # Read the Alchemy API key
 alchemyEndpoint = 'http://access.alchemyapi.com/calls/text/TextGetRankedNamedEntities?'
-# alchemyApiKeyFile = open("api_key.txt", "r")
-alchemyApiKeyFile = open("/home/ubuntu/www/api_key.txt", "r")
+alchemyApiKeyFile = open("api_key.txt", "r")
+#alchemyApiKeyFile = open("/home/ubuntu/www/api_key.txt", "r")
 alchemyApiKey = alchemyApiKeyFile.read()
 alchemyApiKeyFile.close()
+
 
 def parseEntities(results, answerType):
     answerFrequencies = defaultdict(int)
     for result in results:
         alchemyParameters = {
-            "apikey" : "693f8f0aa9e91878fa2644d2de3735323bf1a35d",
-            "text" : result.text,
-            "outputMode" : "json"
+            "apikey": "693f8f0aa9e91878fa2644d2de3735323bf1a35d",
+            "text": result.text,
+            "outputMode": "json"
             }
         alchemyQueryString = urllib.urlencode(alchemyParameters)
         alchemyURL = alchemyEndpoint + alchemyQueryString
@@ -52,9 +55,9 @@ def parseEntities(results, answerType):
             if 'disambiguated' in entity:
                 entityName = entity['disambiguated']['name']
                 for possibleAnswerType in answerTypeNEMap[answerType]:
-                    print 'Possible answer types include %s' % possibleAnswerType
+                    print 'Answer types include %s' % possibleAnswerType
                     if entity['type'].lower() == possibleAnswerType:
-                        print 'Candidate answer (disambiguated): %s' % entityName
+                        print 'Candidate answer (disamb): %s' % entityName
                         answerFrequencies[entityName] += disambiguatedAnswerWeight
             else:
                 entityName = entity['text']
@@ -63,14 +66,13 @@ def parseEntities(results, answerType):
                     if entity['type'].lower() == possibleAnswerType:
                         print 'Candidate answer (disambiguated): %s' % entityName
                         answerFrequencies[entityName] += disambiguatedAnswerWeight
-                
+
 #                print 'Candidate answer (ambiguous): %s' % entityName
 #                answerFrequencies[entityName] += 1
 
         print answerFrequencies
         rankedAnswers = sorted(answerFrequencies.iteritems(), reverse=True)
-        
-    return rankedAnswers
-    
 
-    
+    return rankedAnswers
+
+

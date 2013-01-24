@@ -13,7 +13,7 @@ categories = ['HUM', 'LOC', 'NUM', 'ENTY', 'DESC', 'ABBR']
 
 train = load_files('coarse/',  categories=categories,  shuffle=True,  random_state=42)
 # save train pickle
-filehandler = open('pickle_training_coarse.pkl', 'wb') 
+filehandler = open('pickle_training_coarse.pkl', 'wb')
 pickle.dump(train,  filehandler)
 filehandler.close()
 
@@ -26,13 +26,13 @@ text_clf = Pipeline([
 _ = text_clf.fit(train.data, train.target)
 
 # save text_clf pickle
-filehandler = open('pickle_clf_coarse.pkl', 'wb') 
+filehandler = open('pickle_clf_coarse.pkl', 'wb')
 pickle.dump(text_clf, filehandler)
 filehandler.close()
 
-#new = ['Where is the Amazon river located?', 
-#       'Where can I get a good sandwhich', 
-#       'In what state was Columbus born?', 
+#new = ['Where is the Amazon river located?',
+#       'Where can I get a good sandwhich',
+#       'In what state was Columbus born?',
 #       'What is the best cheese?']
 
 text = """
@@ -99,7 +99,7 @@ Awards	Bronze Star (1)
 Purple Heart (2)
 Robert Joseph "Bob" Dole (born July 22, 1923) is an American attorney and politician. Dole represented Kansas in the United States Senate from 1969 to 1996, was Gerald Ford's Vice Presidential running mate in the 1976 presidential election, and was Senate Majority Leader from 1985 to 1987 and in 1995 and 1996. Dole was the Republican party nominee in the presidential election of 1996, but he lost to incumbent Democrat Bill Clinton. Dole is currently special counsel at the Washington, D.C. office of law firm Alston & Bird.
 In 2007, President George W. Bush appointed Dole as a co-chair of the commission to investigate problems at Walter Reed Army Medical Center, along with Donna Shalala, a former member of the Clinton cabinet.[2] Dole is married to former U.S. cabinet member and former U.S. Senator Elizabeth Hanford Dole of North Carolina. Bob Dole is currently a member of the advisory council of the Victims of Communism Memorial Foundation.[3]
-Contents  [hide] 
+Contents  [hide]
 1 Early years
 2 World War II and recovery
 3 Political career
@@ -210,7 +210,7 @@ Although Bob Dole accused the band Cannibal Corpse of undermining the national c
 In the Pinky and the Brain episodes "Pinkasso" and "Where The Deer and The Mousealopes Play" a senator by the name of Bob Del Monte refers to himself in third person.
 """
 new = nltk.sent_tokenize(text)
-    
+
 predicted = text_clf.predict(new)
 for doc, category in zip(new, predicted):
     print '%r => %s' % (doc, train.target_names[category])

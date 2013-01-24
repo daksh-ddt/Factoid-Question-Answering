@@ -11,10 +11,6 @@ os.chdir('/home/gavin/dev/spyder-workspace/shallowQA/corpora/data')
 categories = ['HUM', 'LOC', 'NUM', 'ENTY', 'DESC', 'ABBR', 'BOOL']
 
 train = load_files('coarse/',  categories=categories,  shuffle=True,  random_state=42)
-# save train pickle
-filehandler = open('pickle_training_coarse.pkl', 'wb') 
-pickle.dump(train,  filehandler)
-filehandler.close()
 
 text_clf = Pipeline([
     ('vect', CountVectorizer()),
@@ -25,13 +21,13 @@ text_clf = Pipeline([
 _ = text_clf.fit(train.data, train.target)
 
 # save text_clf pickle
-filehandler = open('pickle_clf_coarse.pkl', 'wb') 
+filehandler = open('pickle_clf_coarse.pkl', 'wb')
 pickle.dump(text_clf, filehandler)
 filehandler.close()
 
-new = ['Where is the Amazon river located?', 
-       'Who was the first president', 
-       'In what state was Columbus born?', 
+new = ['Where is the Amazon river located?',
+       'Who was the first president',
+       'In what state was Columbus born?',
        'What is the fastest animal?',
        'Do you like pie?']
 

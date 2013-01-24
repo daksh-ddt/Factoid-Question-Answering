@@ -8,12 +8,12 @@ from sklearn.pipeline import Pipeline
 
 os.chdir('/home/gavin/Documents/dev/ie/corpora/data/fine/')
 
-categories = ['abb',  'exp']
+categories = ['abb', 'exp']
 
 train_ABBR = load_files('ABBR/',  categories=categories,  shuffle=True,  random_state=42)
 
 # save train_ABBR pickle
-filehandler = open('pickle_training_ABBR.pkl', 'wb') 
+filehandler = open('pickle_training_ABBR.pkl', 'wb')
 pickle.dump(train_ABBR, filehandler)
 filehandler.close()
 
@@ -26,12 +26,12 @@ text_clf = Pipeline([
 _ = text_clf.fit(train_ABBR.data, train_ABBR.target)
 
 # save text_clf pickle
-filehandler = open('pickle_clf_ABBR.pkl', 'wb') 
+filehandler = open('pickle_clf_ABBR.pkl', 'wb')
 pickle.dump(text_clf, filehandler)
 filehandler.close()
 
 # prediction
-new = ['What does IBM stand for?', 
+new = ['What does IBM stand for?',
        'What is the abbreviation for toothpick?']
 
 predicted = text_clf.predict(new)

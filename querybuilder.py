@@ -9,6 +9,7 @@ Created on Mon Sep 24 19:23:50 2012
 import nltk.tokenize.punkt;
 
 def buildKeywordsList(question, apphome):
+    print question
     # encode unicode input as str
     question = question[0].encode('ascii', 'ignore')
     #keywordsList = nltk.word_tokenize(question[0])
@@ -23,13 +24,13 @@ def buildKeywordsList(question, apphome):
     stopListFile.close()
     # Filter non-alphanumeric characters from the query
     keywordsList = [filter(str.isalnum, token).lower() for token in keywordsList]
-    
+
     # Filter empty tokens from the query
     keywordsList = [token for token in keywordsList if len(token) > 0]
     # Filter stop list words from the query
     keywordsList = [token for token in keywordsList if token not in stopList]
     return keywordsList
-    
-    
+
+
 def buildQueryString(keywordsList):
     return " ".join(keywordsList)
