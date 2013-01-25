@@ -1,0 +1,34 @@
+load file contents and categories
+extract feature vectors
+train a linear model to categorize
+use grid search strategy to configure feature extractor and classifier
+
+categories = ['process', 'entity', 'number', 'human']
+
+category stored as int id
+
+
+build a dictionary for every word occuring in any document in the data set mapping the word to an integer index
+word: int id
+
+
+for document i in documents:
+	count the number of occurrences of each word w
+	store it as x[i, j] where j is the index of w in the dictionary
+
+the number of features is the number of distinct words in the corpus. this number may be too large
+most values in x[] will be 0 since there are only a few thousand distinct words used in each document
+bags of words are high dimensional sparse datasets. store only the non-zero parts in memory
+
+tokenize text as words or ngrams
+-remove accents and convert to lowercase
+-split the text into words
+-remove punctuation and single-letter words
+
+transform documents into feature vectors
+
+index of word in the vocabulary is linked in dictionary to the word's frequency in the entire corpus
+
+tf = term frequencies = divide the total number of occurences of a word in a document by the total number of words in the document
+tf-idf = term frequencies times inverse document frequency = downscale weights for words that occur in many documents (and therefore are less informative than words that only occur in a small portion of the corpus)
+

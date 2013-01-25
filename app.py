@@ -17,7 +17,9 @@ import bing_interface
 import document_creator
 import answer_extractor
 
+
 class MainHandler(tornado.web.RequestHandler):
+
     def get(self):
         self.write("hello")
 
@@ -37,21 +39,14 @@ class MainHandler(tornado.web.RequestHandler):
         documents = document_creator.create_documents(
             search_results, 10, filtered_keywords)
 
-        rankedAnswerCandidates = answer_extractor.extract_answers(
+        ranked_answers = answer_extractor.extract_answers(
             documents, answer.predicted_fine, filtered_keywords)
 
-        print rankedAnswerCandidates[0]
-        answer.body = rankedAnswerCandidates[0]
-
+        answer.best_answer = ranked_answers[0]
+        answer.all_answers = ranked_answers
         response = json.dumps(
             vars(answer), sort_keys=True, indent=4)
         self.write(response)
-
-        #get keywords
-        #build query string
-        #classify question
-        #get/create documents
-        #filter documents
 
 
 handlers = [
@@ -63,6 +58,7 @@ settings = dict(template_path=os.path.join(
     os.path.dirname(__file__), "templates"))
 application = tornado.web.Application(handlers, **settings)
 define("port", default=8000, help="run on the given port", type=int)
+
 
 if __name__ == "__main__":
     query_builder = query_builder.Query_builder()
