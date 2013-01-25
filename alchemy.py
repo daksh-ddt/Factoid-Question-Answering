@@ -32,20 +32,20 @@ answerTypeNEMap = {
 
 
 
-def parseEntities(results, answerType, keywordsList, apphome):
+def parseEntities(results, answerType, keywordsList):
     answerFrequencies = defaultdict(int)
-    
+
     # Read the Alchemy API key
     alchemyEndpoint = 'http://access.alchemyapi.com/calls/text/TextGetRankedNamedEntities?'
-    alchemyApiKeyFile = open("%s/api_key.txt" % apphome, "r")
-    #alchemyApiKeyFile = open("/home/ubuntu/www/api_key.txt", "r")
+    alchemyApiKeyFile = open('api_key.txt', 'r')
     alchemyApiKey = alchemyApiKeyFile.read()
-    alchemyApiKeyFile.close()    
-    
+    alchemyApiKeyFile.close()
+
     for result in results:
         alchemyParameters = {
             "apikey" : "693f8f0aa9e91878fa2644d2de3735323bf1a35d",
-            "text" : result['text'].encode('utf-8'),
+            #"text" : result['text'].encode('utf-8'),
+            "text" : result.text.encode('utf-8'),
             "outputMode" : "json"
             }
         alchemyQueryString = urllib.urlencode(alchemyParameters)
@@ -53,15 +53,15 @@ def parseEntities(results, answerType, keywordsList, apphome):
         # get JSON seach results from Alchemy
         alchemy_json_data = urllib.urlopen(alchemyURL)
         alchemy_data = json.load(alchemy_json_data)
-        
-        for entity in alchemy_data['entities']:          
+
+        for entity in alchemy_data['entities']:
             if 'disambiguated' in entity:
                 entityName = entity['disambiguated']['name'].encode('ascii', 'replace')
                 for possibleAnswerType in answerTypeNEMap[answerType]:
                     print 'Possible answer types include %s' % possibleAnswerType
                     if entity['type'].lower() == possibleAnswerType:
                         print 'Candidate answer (disambiguated): %s' % entityName
-                        sentences = sent_tokenize(result['text'])
+                        sentences = sent_tokenize(result.text)
                         for sentence in sentences:
                             print 'Sentence: %s' % unidecode(sentence)
                             if entityName in sentence:
@@ -77,7 +77,7 @@ def parseEntities(results, answerType, keywordsList, apphome):
                     print 'Possible answer types include %s' % possibleAnswerType
                     if entity['type'].lower() == possibleAnswerType:
                         print 'Candidate answer (disambiguated): %s' % entityName.encode('ascii', 'replace')
-                        sentences = sent_tokenize(result['text'])
+                        sentences = sent_tokenize(result.text)
                         for sentence in sentences:
                             print 'Sentence: %s' % unidecode(sentence)
                             if entityName in sentence:
@@ -90,17 +90,8 @@ def parseEntities(results, answerType, keywordsList, apphome):
                                 answerFrequencies[entityName] += 0.1
 
         print answerFrequencies
-        rankedAnswers = sorted(answerFrequencies.iteritems(), reverse=True)
-        
+        #rankedAnswers = answerFrequencies.sort(key=lambda x: x[1])
+        rankedAnswers = sorted(answerFrequencies.iteritems(), key=lambda (k,v): v, reverse=True)
+        print '\n', rankedAnswers
+
     return rankedAnswers
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
