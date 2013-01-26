@@ -3,6 +3,7 @@
 
 
 '''
+import os
 try:
     import cPickle as pickle
 except:
@@ -12,6 +13,7 @@ except:
 class Answer_classifier:
 
     def __init__(self):
+        self.base_path = os.path.dirname(__file__)
         self.coarse_target_names = [
             'ABBR', 'DESC', 'ENTY', 'HUM', 'LOC', 'NUM']
         self.fine_target_names = {
@@ -28,7 +30,7 @@ class Answer_classifier:
                     'perc', 'period', 'speed', 'temp', 'volsize', 'weight']
         }
 
-        model_pickle = open('training_model/coarse.p')
+        model_pickle = open(os.path.join(self.base_path, 'training_model/coarse.p'))
         self.coarse_classifier = pickle.load(model_pickle)
         model_pickle.close()
 
@@ -36,8 +38,8 @@ class Answer_classifier:
         print self.coarse_classifier.predict(question)
         predicted_coarse = self.coarse_target_names[
             self.coarse_classifier.predict(question)]
-        fine_model_pickle = open(
-            'training_model/fine_%s.p' % predicted_coarse.lower())
+        fine_model_pickle = open(os.path.join(self.base_path,
+            'training_model/fine_%s.p' % predicted_coarse.lower()))
         fine_classifier = pickle.load(fine_model_pickle)
         fine_model_pickle.close()
         predicted_fine = self.fine_target_names[

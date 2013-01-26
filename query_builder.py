@@ -2,13 +2,16 @@
 """
 
 """
+import os
 import nltk.tokenize.punkt
 
 
 class Query_builder:
 
     def __init__(self):
-        stop_words_file = open('resources/stop_words.txt', 'r')
+        base_path = os.path.dirname(__file__)
+        stop_words_file = open(
+            os.path.join(base_path, 'resources/stop_words.txt'))
         self.stop_words = [
             line.strip() for line in stop_words_file.readlines()]
         stop_words_file.close()
