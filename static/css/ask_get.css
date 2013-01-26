@@ -1,0 +1,26 @@
+#ajax-form {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+label {
+    display: block;
+}
+input, textarea {
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+.error {
+    color: red;
+    display: none;
+}
+#ajaxsuccess {
+    color: green;
+    display: none;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}

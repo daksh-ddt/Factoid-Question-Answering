@@ -21,7 +21,7 @@ import answer_extractor
 class MainHandler(tornado.web.RequestHandler):
 
     def get(self):
-        self.write("hello")
+        self.render('ask_get.html')
 
     def post(self):
         data_json = tornado.escape.json_decode(self.request.body)
