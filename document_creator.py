@@ -15,10 +15,9 @@ def create_documents(data, number_of_pages, filtered_keywords):
     documents = []
     counter = 0
     for description in descriptions:
-        # for sent in nltk.tokenize.sent_tokenize(description)
         documents.append(
             document.Document(
-                text=description, fine='', coarse='', id=str(counter)))
+                text=description.encode('utf-8'), fine='', coarse='', id=str(counter)))
         counter += 1
 
     return filter_documents(documents, filtered_keywords)
