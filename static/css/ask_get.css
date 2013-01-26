@@ -24,3 +24,7 @@ input, textarea {
     margin-right: auto;
     margin-top: 30px;
 }
+h1 {
+	font-size: 172px;
+	line-height: 50%;
+}

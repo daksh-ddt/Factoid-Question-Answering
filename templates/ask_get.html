@@ -35,7 +35,7 @@
     </div>
     <div class="container-fluid">
       <h1>
-        <div style="text-align: center;">
+        <div id="title" style="text-align: center;">
           Ask
         </div>
       </h1>
@@ -46,8 +46,8 @@
           <div class="error" id="err-timedout">The connection to the server timed out!</div>
           <div class="error" id="err-state"></div>
       </form>
-      <div id="ajaxsuccess"><h2>Successfully sent!!</h2></div>
-      <pre id="answer">
+      <div id="ajaxsuccess">Searching...</div>
+      <div id="answer"></div>
     </div>
 
     <style>
@@ -82,6 +82,8 @@
         $(function(){
             $('form').submit(function() {
                 question = JSON.stringify($('form').serializeObject());
+                $('#ajaxsuccess').slideDown('fast');
+                $('#title').slideUp('fast');
                 $.ajax({
                   type: "POST",
                   dataType: "json",
@@ -100,61 +102,15 @@
                       }
                   },
                   success: function(data) {
-                    console.log('success');
-                      $('#ajax-form').slideUp('slow');
-                      $('#ajaxsuccess').slideDown('slow');
+                      $('#ajaxsuccess').slideUp('fast');
                       var $response = $(data);
                       console.log($response);
-                      console.log($response[0]['best_answer'][0]);
                       $('#answer').text($response[0]['best_answer'][0]);
                   }
                 });
                 return false;
             });
         });
-
-              // var data_string = $('#question').serializeArray(); // Collect data from form
-          //     var data_string = serializeObject($('question'));
-          //     console.log(data_string);
-          //     $.ajax({
-          //         type: "POST",
-          //         url: $('#ajax-form').attr('action'),
-          //         data: data_string,
-          //         timeout: 6000,
-          //         error: function(request,error) {
-          //             if (error == "timeout") {
-          //                 $('#err-timedout').slideDown('slow');
-          //             }
-          //             else {
-          //                 $('#err-state').slideDown('slow');
-          //                 $("#err-state").html('An error occurred: ' + error + '');
-          //             }
-          //         },
-          //         success: function() {
-          //             $('#ajax-form').slideUp('slow');
-          //             $('#ajaxsuccess').slideDown('slow');
-          //         }
-          //     });
-          //     return false; // stops user browser being directed to the php file
-          // }); // end click function
-
-          // $.fn.serializeObject = function()
-          // {
-          //     console.log('here');
-          //     var o = {};
-          //     var a = this.serializeArray();
-          //     $.each(a, function() {
-          //         if (o[this.name] !== undefined) {
-          //             if (!o[this.name].push) {
-          //                 o[this.name] = [o[this.name]];
-          //             }
-          //             o[this.name].push(this.value || '');
-          //         } else {
-          //             o[this.name] = this.value || '';
-          //         }
-          //     });
-          //     return o;
-          // };
 
     });
     </script>
