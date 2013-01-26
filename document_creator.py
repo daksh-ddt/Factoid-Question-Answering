@@ -4,21 +4,13 @@ Created on Thu Jun 14 20:58:08 2012
 
 @author: gavin
 """
-from model import document
 
 
-def create_documents(data, number_of_pages, filtered_keywords):
-    descriptions = []
-    for result in data['d']['results']:
-        descriptions.append(result['Description'])
-
+def create_documents(data, filtered_keywords):
     documents = []
-    counter = 0
-    for description in descriptions:
-        documents.append(
-            document.Document(
-                text=description.encode('utf-8', 'ignore'), fine='', coarse='', id=str(counter)))
-        counter += 1
+    for result in data['d']['results']:
+        print type(result['Description'])
+        documents.append(result['Description'].encode('ascii','ignore'))
 
     return filter_documents(documents, filtered_keywords)
 
@@ -28,7 +20,7 @@ def filter_documents(documents, filtered_keywords):
     for document in documents:
         accept = False
         for term in filtered_keywords:
-            if term in document.text:
+            if term in document:
                 accept = True
         if accept:
             filteredDocuments.append(document)

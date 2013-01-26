@@ -36,10 +36,10 @@ class MainHandler(tornado.web.RequestHandler):
         # Build a query
         answer.query, filtered_keywords = query_builder.build_query(question)
 
-        search_results = bing_interface.search(answer.query)
+        search_results = bing_interface.search(answer.query, 30)
 
         documents = document_creator.create_documents(
-            search_results, 10, filtered_keywords)
+            search_results, filtered_keywords)
 
         ranked_answers = answer_extractor.extract_answers(
             documents, answer.predicted_fine, filtered_keywords)

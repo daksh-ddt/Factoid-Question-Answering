@@ -43,7 +43,7 @@ def parseEntities(results, answerType, keywordsList):
     for result in results:
         alchemyParameters = {
             "apikey": "693f8f0aa9e91878fa2644d2de3735323bf1a35d",
-            "text": result.text,
+            "text": result,
             "outputMode": "json"
             }
         alchemyQueryString = urllib.urlencode(alchemyParameters)
@@ -59,7 +59,7 @@ def parseEntities(results, answerType, keywordsList):
                     print 'Possible answer types include %s' % possibleAnswerType
                     if entity['type'].lower() == possibleAnswerType:
                         print 'Candidate answer (disambiguated): %s' % entityName
-                        sentences = sent_tokenize(result.text)
+                        sentences = sent_tokenize(result)
                         for sentence in sentences:
                             print 'Sentence: %s' % unidecode(sentence)
                             if entityName in sentence:
@@ -75,7 +75,7 @@ def parseEntities(results, answerType, keywordsList):
                     print 'Possible answer types include %s' % possibleAnswerType
                     if entity['type'].lower() == possibleAnswerType:
                         print 'Candidate answer (disambiguated): %s' % entityName.encode('ascii', 'replace')
-                        sentences = sent_tokenize(result.text)
+                        sentences = sent_tokenize(result)
                         for sentence in sentences:
                             print 'Sentence: %s' % unidecode(sentence)
                             if entityName in sentence:

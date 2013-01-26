@@ -14,11 +14,11 @@ class Bing_interface:
             'https://user:%s@api.datamarket.azure.com/Bing/SearchWeb/Web?' % \
             self.bingAccountKey
 
-    def search(self, query):
+    def search(self, query, num_results):
         bing_parameters = {
             "Query": "'%s'" % query,
             "Market": "'en-US'",
-            "$top": "50",
+            "$top": num_results,
             "$format": "JSON"
         }
         queryString = urllib.urlencode(bing_parameters)
