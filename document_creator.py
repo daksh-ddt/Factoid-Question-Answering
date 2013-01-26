@@ -15,7 +15,6 @@ def create_documents(data, number_of_pages, filtered_keywords):
     documents = []
     counter = 0
     for description in descriptions:
-        description.encode('ascii', 'ignore')
         documents.append(
             document.Document(
                 text=description.decode('utf-8', 'ignore'), fine='', coarse='', id=str(counter)))
