@@ -106,8 +106,15 @@
                       var $response = $(data);
                       console.log($response);
                       // $('#answer').text($response[0]['best_answer'][0]);
-                      $('#answer').append('<h2>hats</h2>');
+
                       $('#answer').html('<h2>cats</h2>');
+                      $('#answer').html(
+                        $('<div/>', {
+                            id: someID,
+                            className: 'foobar',
+                            html: 'bats'
+                        });
+                      );
                   }
                 });
                 return false;
