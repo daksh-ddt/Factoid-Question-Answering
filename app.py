@@ -24,8 +24,10 @@ class MainHandler(tornado.web.RequestHandler):
         self.render('ask_get.html')
 
     def post(self):
+        print self.request
         data_json = tornado.escape.json_decode(self.request.body)
-        question = data_json['question']
+        question = [data_json['question']]
+        print question
         answer = Answer.Answer(question)
         # Predict coarse and fine answer types
         answer.predicted_coarse, answer.predicted_fine = \
