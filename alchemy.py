@@ -4,6 +4,7 @@ Modified on Mon Sep 24 19:23:50 2012
 
 @author: gavin hackeling
 """
+import os
 import urllib
 import json
 from collections import defaultdict
@@ -30,11 +31,9 @@ answerTypeNEMap = {
 }
 
 
-
-
 def parseEntities(results, answerType, keywordsList):
     answerFrequencies = defaultdict(int)
-    self.base_path = os.path.dirname(__file__)
+    base_path = os.path.dirname(__file__)
     # Read the Alchemy API key
     alchemyEndpoint = 'http://access.alchemyapi.com/calls/text/TextGetRankedNamedEntities?'
     alchemyApiKeyFile = open(os.path.join(base_path, 'api_key.txt'))
