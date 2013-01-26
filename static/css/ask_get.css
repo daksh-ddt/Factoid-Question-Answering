@@ -28,3 +28,7 @@ h1 {
 	font-size: 172px;
 	line-height: 50%;
 }
+#response_container {
+	display: none;
+	text-align: left;
+}
