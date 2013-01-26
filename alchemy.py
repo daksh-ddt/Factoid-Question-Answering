@@ -42,10 +42,9 @@ def parseEntities(results, answerType, keywordsList):
 
     for result in results:
         alchemyParameters = {
-            "apikey" : "693f8f0aa9e91878fa2644d2de3735323bf1a35d",
-            #"text" : result['text'].encode('utf-8'),
-            "text" : result.text.encode('utf-8'),
-            "outputMode" : "json"
+            "apikey": "693f8f0aa9e91878fa2644d2de3735323bf1a35d",
+            "text": result.text.encode('utf-8', 'ignore'),
+            "outputMode": "json"
             }
         alchemyQueryString = urllib.urlencode(alchemyParameters)
         alchemyURL = alchemyEndpoint + alchemyQueryString
