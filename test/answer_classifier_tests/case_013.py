@@ -10,7 +10,7 @@ import unittest
 class Test_pipeline(unittest.TestCase):
 
     def runTest(self):
-        question = 'who is the CEO of Apple?'
+        question = 'who is the founder of Linux'
         print 'Starting test'
         d = {"question": "[%s]" % question}
         req = urllib2.Request('http://ec2-50-17-103-0.compute-1.amazonaws.com:8009/')
@@ -19,7 +19,7 @@ class Test_pipeline(unittest.TestCase):
         response = json.loads(response)
         best_answer = response['best_answer']
         print 'Best answer: %s' % best_answer
-        self.assertEqual(best_answer.lower(), 'tim cook')
+        self.assertEqual(best_answer.lower(), 'linus torvalds')
 
 if __name__ == '__main__':
     unittest.main()
