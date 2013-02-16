@@ -52,9 +52,12 @@ class MainHandler(tornado.web.RequestHandler):
         ranked_answers = answer_extractor.extract_answers(
             tokens,
             pos_tagged_documents,
+            ranked_docs,
             answer.predicted_coarse,
             answer.predicted_fine,
-            filtered_keywords)
+            filtered_keywords,
+            True,
+        )
 
         print ranked_answers
         # Populate, serialize and return the Answer

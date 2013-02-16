@@ -30,6 +30,7 @@ def extract(tokens, pos_tagged_documents):
 
     tokens_lowered = [t.lower() for t in tokens]
     person_freq = defaultdict(int)
+
     unjoined_entities = []
     for pos_tagged_doc in pos_tagged_documents:
         phrase_chunks = ne_chunk(pos_tagged_doc)
@@ -63,9 +64,3 @@ def extract(tokens, pos_tagged_documents):
             break
 
     return answer
-    #for entity in unjoined_entities:
-        #person_freq[' '.join(entity)] += 1
-    #candidate_answers = sorted(
-        #person_freq.items(), key=lambda x: x[1], reverse=True)[:5]
-    #return candidate_answers
-

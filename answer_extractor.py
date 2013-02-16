@@ -5,11 +5,18 @@ and extract candidate answers for verification.
 
 '''
 from extractors import hum_ind
-
+from extractors import hum_ind_alchemy
 
 class Answer_extractor:
 
     def __init__(self):
+        hum_map_alchemy = {
+            'desc': 'hum_desc',
+            'gr': 'hum_gr',
+            'ind': hum_ind_alchemy,
+            'title': 'hum_title'
+        }
+
         hum_map = {
             'desc': 'hum_desc',
             'gr': 'hum_gr',
@@ -36,11 +43,23 @@ class Answer_extractor:
         self.extraction_map = {
             'hum': hum_map,
             'num': num_map,
-
         }
 
-    def extract_answers(
-        self, tokens, pos_tagged_documents, coarse, fine, keywordsList):
-        extractor = self.extraction_map[coarse][fine]
-        candidate_answers = extractor.extract(tokens, pos_tagged_documents)
-        return candidate_answers
+        self.extraction_map_alchemy = {
+            'hum': hum_map_alchemy,
+            'num': num_map,
+        }
+
+    def extract_answers(self, tokens,
+                        pos_tagged_documents, ranked_docs,
+                        coarse, fine, keywordsList, use_alchemy):
+        if not use_alchemy:
+            extractor = self.extraction_map[coarse][fine]
+            ranked_answers = extractor.extract(
+                tokens, pos_tagged_documents)
+        else:
+            print('using alchemy api')
+            extractor = self.extraction_map_alchemy[coarse][fine]
+            ranked_answers = extractor.extract(
+                tokens, pos_tagged_documents, ranked_docs)
+        return ranked_answers
