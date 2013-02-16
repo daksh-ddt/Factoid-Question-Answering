@@ -1,6 +1,6 @@
 # -*- coding: utf-8 *-*
 '''
-
+Predict a coarse and fine answer type for a question.
 
 '''
 import os
@@ -30,14 +30,10 @@ class Answer_classifier:
                     'perc', 'period', 'speed', 'temp', 'volsize', 'weight']
         }
 
+        # Load the coarse and fine classifiers
         model_pickle = open(
             os.path.join(self.base_path, 'training_model/coarse.p'))
         self.coarse_classifier = pickle.load(model_pickle)
-        model_pickle.close()
-
-        model_pickle = open(
-            os.path.join(self.base_path, 'training_model/fine_abbr.p'))
-        self.fine_abbr_classifier = pickle.load(model_pickle)
         model_pickle.close()
 
         model_pickle = open(
@@ -80,6 +76,7 @@ class Answer_classifier:
         }
 
     def predict_answer_type(self, question):
+        # Predict a coarse type
         predicted_coarse = self.coarse_target_names[
             self.coarse_classifier.predict(question)]
         print 'Predicting coarse type: %s for question: %s' % (predicted_coarse,
@@ -88,15 +85,15 @@ class Answer_classifier:
         # Load the appropriate fine classifier
         fine_classifier = self.fine_classifiers[predicted_coarse]
 
+        # Predict a fine type
         predicted_fine = self.fine_target_names[
             predicted_coarse][fine_classifier.predict(question)]
+        print 'Predicting fine type: %s for question: %s' % (predicted_fine,
+            question)
         return predicted_coarse.lower(), predicted_fine
 
 
 if __name__ == '__main__':
-    #question = ['Who was the first president of spain?']
-    #question = ['how far is the earth from the moon?']
-    #question = ['what company produces the model s?']
     question = ['where is the largest mall in america?']
     answer_classifier = Answer_classifier()
     predicted_coarse, predicted_fine = answer_classifier.predict_answer_type(

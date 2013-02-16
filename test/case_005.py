@@ -19,7 +19,7 @@ class Test_pipeline(unittest.TestCase):
         response = json.loads(response)
         best_answer = response['best_answer'][0]
         print 'Best answer: %s' % best_answer
-        self.assertEqual(best_answer.lower(), 'eli whitney')
+        self.assertEqual(best_answer.lower(), 'eli whitney, jr.')
 
 if __name__ == '__main__':
     unittest.main()

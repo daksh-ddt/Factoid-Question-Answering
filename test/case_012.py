@@ -10,7 +10,7 @@ import unittest
 class Test_pipeline(unittest.TestCase):
 
     def runTest(self):
-        question = 'who wrote the song la isla bonita?'
+        question = ''
         print 'Starting test'
         d = {"question": "[%s]" % question}
         req = urllib2.Request('http://ec2-50-17-103-0.compute-1.amazonaws.com/')
@@ -19,7 +19,7 @@ class Test_pipeline(unittest.TestCase):
         response = json.loads(response)
         best_answer = response['best_answer'][0]
         print 'Best answer: %s' % best_answer
-        self.assertEqual(best_answer.lower(), 'madonna (entertainer)')
+        self.assertEqual(best_answer.lower(), '')
 
 if __name__ == '__main__':
     unittest.main()

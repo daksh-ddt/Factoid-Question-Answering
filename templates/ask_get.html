@@ -128,8 +128,8 @@
                       // $('#answer').text($response[0]['best_answer'][0]);
 
                       // $('#answer').html('<h3>My best guess is ' + $response[0]['best_answer'][0] + '.</h3>');
-                      $('#answer').text($response[0]['best_answer'][0]);
-                      $('#answer_detail').text('Summary of ' + $response[0]['best_answer'][0]);
+                      $('#answer').text($response[0]['best_answer']);
+                      $('#answer_detail').text('Summary of ' + $response[0]['best_answer']);
                       var all_answers = $response[0]['all_answers']
                       for (var i = 1; i < all_answers.length; i++) {
                         $('#all_answers').append($('<li>', {

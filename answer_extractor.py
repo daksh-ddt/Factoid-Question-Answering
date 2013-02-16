@@ -1,68 +1,46 @@
 # -*- coding: utf-8 -*-
-"""
+'''
+Load the appropriate extraction module for the question type
+and extract candidate answers for verification.
+
+'''
+from extractors import hum_ind
 
 
-"""
-import nltk.tokenize
-import alchemy
+class Answer_extractor:
 
-from unidecode import unidecode
+    def __init__(self):
+        hum_map = {
+            'desc': 'hum_desc',
+            'gr': 'hum_gr',
+            'ind': hum_ind,
+            'title': 'hum_title'
+        }
 
+        num_map = {
+            'code': 'num_code',
+            'count': 'num_count',
+            'date': 'num_date',
+            'dist': 'num_dist',
+            'money': 'num_money',
+            'ord': 'num_ord',
+            'other': 'num_other',
+            'perc': 'num_perc',
+            'period': 'num_period',
+            'speed': 'num_speed',
+            'temp': 'num_temp',
+            'volsize': 'num_volsize',
+            'weight': 'num_weight'
+        }
 
-def extract_answers(results, answerType, keywordsList):
+        self.extraction_map = {
+            'hum': hum_map,
+            'num': num_map,
 
-    answerTypeNEMap = {
-        "ind" : ["person"],
-        "city" : ["city"],
-        "country" : ["country", "StateOrCounty"],
-        "mount" : ["GeographicFeature", "Mountain", "MountainPass", "MountainRange"],
-        "state" : ["StateOrCounty"],
-        "other" : ["Continent", "country", "city", "stateorcounty", "GeographicFeature"],
-        "gr" : ["Organization"],
-        "cremat" : ["PrintMedia", "RadioProgram", "RadioStation", "TelevisionShow", "TelevisionStation",
-                    "MusicGroup", "Movie"],
-        "techmeth" : ["Technology"],
-        "religion" : ["ReligiousOrganization", "ReligiousOrder"],
-        "sport" : ["Sport"],
-        "dismed" : ["HealthCondition"]
-    }
-    # for answertype 'other', need coarse label too
-    answerTypeOtherMap = {
+        }
 
-    }
-
-    answerTypePOS = [
-        'code',
-        'count',
-        'date',
-        'dist',
-        'money',
-        'ord',
-        'perc',
-        'period',
-        'speed',
-        'temp',
-        'volsize',
-        'weight'
-    ]
-
-    if answerType in answerTypeNEMap:
-        rankedAnswers = alchemy.parseEntities(
-            results, answerType, keywordsList)
-    elif answerType in answerTypePOS:
-        rankedAnswers = []
-        for result in results:
-            result = unidecode(u'%s' % result)
-            resultTokens = nltk.tokenize.word_tokenize(result)
-            resultTags = nltk.pos_tag(resultTokens)
-            print '%s: %s' % (resultTokens, resultTags)
-            for tag in resultTags:
-                if tag[1] == 'CD':
-                    print '%s, %s' % (tag, tag[0])
-                    rankedAnswers.append([tag[0]])
-                #if tag[1] == 'CD':
-                 #   rankedAnswers.append(tag[0])
-        return rankedAnswers
-    else:
-        rankedAnswers = [["Sorry, I can't do that yet."]]
-    return rankedAnswers
+    def extract_answers(
+        self, tokens, pos_tagged_documents, coarse, fine, keywordsList):
+        extractor = self.extraction_map[coarse][fine]
+        candidate_answers = extractor.extract(tokens, pos_tagged_documents)
+        return candidate_answers

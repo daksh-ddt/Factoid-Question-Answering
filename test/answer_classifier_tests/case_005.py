@@ -16,7 +16,7 @@ class Test_pipeline(unittest.TestCase):
         predicted_coarse, predicted_fine = classifier.predict_answer_type(
             question)
         print predicted_coarse, predicted_fine
-        self.assertEqual(predicted_fine, 'spd')
+        self.assertEqual(predicted_fine, 'speed')
 
 if __name__ == '__main__':
     unittest.main()

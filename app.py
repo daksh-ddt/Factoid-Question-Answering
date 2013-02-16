@@ -15,7 +15,7 @@ from model import answer as Answer
 import query_builder
 import bing_interface
 import document_creator
-import answer_extractor
+import answer_extractor as ae
 
 
 class MainHandler(tornado.web.RequestHandler):
@@ -38,22 +38,28 @@ class MainHandler(tornado.web.RequestHandler):
             answer_classifier.predict_answer_type(question)
 
         # Build a query
-        answer.query, filtered_keywords = query_builder.build_query(question)
+        answer.query, filtered_keywords, tokens = \
+            query_builder.build_query(question)
 
         # Retrieve search results from Bing
-        search_results = bing_interface.search(answer.query, 30)
+        search_results = bing_interface.search(answer.query, 10)
 
         # Extract snippets from the search results
-        documents = document_creator.create_documents(
-            search_results, filtered_keywords)
+        ranked_docs, pos_tagged_documents = document_creator.create_documents(
+            search_results, filtered_keywords, tokens)
 
         # Rank the candidate answers
         ranked_answers = answer_extractor.extract_answers(
-            documents, answer.predicted_fine, filtered_keywords)
+            tokens,
+            pos_tagged_documents,
+            answer.predicted_coarse,
+            answer.predicted_fine,
+            filtered_keywords)
 
+        print ranked_answers
         # Populate, serialize and return the Answer
-        answer.best_answer = ranked_answers[0]
-        answer.all_answers = ranked_answers
+        answer.best_answer = ranked_answers
+        #answer.all_answers = ranked_answers
         response = json.dumps(
             vars(answer), sort_keys=True, indent=4)
         self.write(response)
@@ -74,6 +80,7 @@ if __name__ == "__main__":
     query_builder = query_builder.Query_builder()
     bing_interface = bing_interface.Bing_interface()
     answer_classifier = classifier.Answer_classifier()
+    answer_extractor = ae.Answer_extractor()
     tornado.options.parse_command_line()
     application.listen(options.port)
     tornado.ioloop.IOLoop.instance().start()
