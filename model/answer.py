@@ -1,10 +1,11 @@
 # -*- coding: utf-8 *-*
 '''
-
+Answer object that will be serialized to JSON
 '''
 
 
 class Answer:
+
     def __init__(self, question):
         self.predicted_coarse = None
         self.predicted_fine = None

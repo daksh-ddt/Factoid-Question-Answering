@@ -13,7 +13,8 @@ categories = ['code', 'count', 'date', 'dist', 'money', 'ord', 'other', 'perc',
      'period', 'speed', 'temp', 'volsize', 'weight']
 
 train_NUM = load_files(
-    '../corpora/data/fine/NUM/', categories=categories, shuffle=True, random_state=42)
+    '../corpora/data/fine/NUM/',
+    categories=categories, shuffle=True, random_state=42)
 
 text_clf = Pipeline([
     ('vect', CountVectorizer()),

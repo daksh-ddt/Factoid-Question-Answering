@@ -10,7 +10,7 @@ def create_documents(data, filtered_keywords):
     documents = []
     for result in data['d']['results']:
         print type(result['Description'])
-        documents.append(result['Description'].encode('ascii','ignore'))
+        documents.append(result['Description'].encode('ascii', 'ignore'))
 
     return filter_documents(documents, filtered_keywords)
 

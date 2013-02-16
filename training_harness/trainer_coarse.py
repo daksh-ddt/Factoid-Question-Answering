@@ -12,7 +12,8 @@ from sklearn.pipeline import Pipeline
 categories = ['HUM', 'LOC', 'NUM', 'ENTY', 'DESC', 'ABBR']
 
 train_COARSE = load_files(
-    '../corpora/data/coarse/', categories=categories, shuffle=True, random_state=42)
+    '../corpora/data/coarse/',
+    categories=categories, shuffle=True, random_state=42)
 
 text_clf = Pipeline([
     ('vect', CountVectorizer()),

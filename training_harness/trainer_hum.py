@@ -12,7 +12,8 @@ from sklearn.pipeline import Pipeline
 categories = ['desc', 'gr', 'ind', 'title']
 
 train_HUM = load_files(
-    '../corpora/data/fine/HUM/', categories=categories, shuffle=True, random_state=42)
+    '../corpora/data/fine/HUM/',
+    categories=categories, shuffle=True, random_state=42)
 
 text_clf = Pipeline([
     ('vect', CountVectorizer()),

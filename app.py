@@ -24,11 +24,15 @@ class MainHandler(tornado.web.RequestHandler):
         self.render('ask_get.html')
 
     def post(self):
-        print self.request
+        # Retrieve the question
         data_json = tornado.escape.json_decode(self.request.body)
         question = [data_json['question']]
-        print question
+        print 'Question:', question
+
+        # Create Answer object
+        # This will be serialized and returned after it is processed.
         answer = Answer.Answer(question)
+
         # Predict coarse and fine answer types
         answer.predicted_coarse, answer.predicted_fine = \
             answer_classifier.predict_answer_type(question)
@@ -36,14 +40,18 @@ class MainHandler(tornado.web.RequestHandler):
         # Build a query
         answer.query, filtered_keywords = query_builder.build_query(question)
 
+        # Retrieve search results from Bing
         search_results = bing_interface.search(answer.query, 30)
 
+        # Extract snippets from the search results
         documents = document_creator.create_documents(
             search_results, filtered_keywords)
 
+        # Rank the candidate answers
         ranked_answers = answer_extractor.extract_answers(
             documents, answer.predicted_fine, filtered_keywords)
 
+        # Populate, serialize and return the Answer
         answer.best_answer = ranked_answers[0]
         answer.all_answers = ranked_answers
         response = json.dumps(

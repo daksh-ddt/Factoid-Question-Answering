@@ -11,7 +11,8 @@ from sklearn.pipeline import Pipeline
 
 categories = ['def', 'desc', 'manner', 'reason']
 train_desc = load_files(
-    '../corpora/data/fine/DESC/', categories=categories, shuffle=True, random_state=42)
+    '../corpora/data/fine/DESC/',
+    categories=categories, shuffle=True, random_state=42)
 
 text_clf = Pipeline([
     ('vect', CountVectorizer()),

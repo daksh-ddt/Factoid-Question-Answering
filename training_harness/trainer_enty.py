@@ -15,7 +15,8 @@ categories = ['animal', 'body', 'color', 'cremat', 'currency', 'dismed',
             'termeq', 'veh', 'word']
 
 train_ENTY = load_files(
-    '../corpora/data/fine/ENTY/', categories=categories, shuffle=True, random_state=42)
+    '../corpora/data/fine/ENTY/',
+    categories=categories, shuffle=True, random_state=42)
 
 text_clf = Pipeline([
     ('vect', CountVectorizer()),

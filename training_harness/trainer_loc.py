@@ -12,7 +12,8 @@ from sklearn.pipeline import Pipeline
 categories = ['city', 'country', 'mount', 'other', 'state']
 
 train_LOC = load_files(
-    '../corpora/data/fine/LOC/', categories=categories, shuffle=True, random_state=42)
+    '../corpora/data/fine/LOC/',
+    categories=categories, shuffle=True, random_state=42)
 
 text_clf = Pipeline([
     ('vect', CountVectorizer()),

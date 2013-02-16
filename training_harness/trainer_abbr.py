@@ -11,7 +11,8 @@ from sklearn.pipeline import Pipeline
 
 categories = ['abb', 'exp']
 train_ABBR = load_files(
-    '../corpora/data/fine/ABBR/', categories=categories, shuffle=True, random_state=42)
+    '../corpora/data/fine/ABBR/',
+    categories=categories, shuffle=True, random_state=42)
 
 text_clf = Pipeline([
     ('vect', CountVectorizer()),
