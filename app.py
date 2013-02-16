@@ -73,7 +73,7 @@ handlers = [
 settings = dict(template_path=os.path.join(
     os.path.dirname(__file__), "templates"))
 application = tornado.web.Application(handlers, **settings)
-define("port", default=8000, help="run on the given port", type=int)
+define("port", default=8009, help="run on the given port", type=int)
 
 
 if __name__ == "__main__":
