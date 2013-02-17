@@ -10,7 +10,7 @@ import unittest
 class Test_pipeline(unittest.TestCase):
 
     def runTest(self):
-        question = 'how far is the earth from the moon'
+        question = 'who is the host of the daily show?'
         print 'Starting test'
         d = {"question": "[%s]" % question}
         req = urllib2.Request('http://ec2-50-17-103-0.compute-1.amazonaws.com:8009/')
@@ -18,10 +18,8 @@ class Test_pipeline(unittest.TestCase):
         response = urllib2.urlopen(req, json.dumps(d)).read()
         response = json.loads(response)
         best_answer = response['best_answer']
-        all_answers = response['all_answers']
         print 'Best answer: %s' % best_answer
-        print 'Other answers: %s' % all_answers
-        self.assertEqual(best_answer.lower(), '238,900 miles')
+        self.assertEqual(best_answer.lower(), 'jon stewart')
 
 if __name__ == '__main__':
     unittest.main()
