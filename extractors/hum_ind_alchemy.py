@@ -10,11 +10,14 @@ from collections import defaultdict
 import re
 import unicodedata
 
+# TODO
 # TODO incorporate document ranking into entity score
 # TODO bundle docs into one to minimize API calls
 def extract(tokens, pos_tagged_documents, ranked_docs):
-    answer_freq = defaultdict(int)
 
+    answer_freq = defaultdict(int)
+    # TODO
+    q = ' '.join(tokens).lower()
     def safe_unicode(obj, *args):
         try:
             return unicode(obj, *args)
@@ -50,10 +53,18 @@ def extract(tokens, pos_tagged_documents, ranked_docs):
                 entity_name = entity['disambiguated']['name']
                 if '(' in entity_name:
                     entity_name = re.sub(r' \(.+\)', r'', entity_name)
-                answer_freq[entity_name] += 1
+                if entity_name.lower() not in q:
+                    print '%s not in %s' % (entity_name, q)
+                    answer_freq[entity_name] += 1
+                else:
+                    print 'WARNING: %s in %s' % (entity_name, q)
             else:
                 entity_name = entity['text']
-                answer_freq[entity_name] += 1
+                if entity_name not in q:
+                    print '%s not in %s' % (entity_name, q)
+                    answer_freq[entity_name] += 1
+                else:
+                    print 'WARNING: %s in %s' % (entity_name, q)
 
     answer = sorted(
         answer_freq.items(), key=lambda x: x[1], reverse=True)[0]
