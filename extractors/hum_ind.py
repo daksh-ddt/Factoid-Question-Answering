@@ -12,7 +12,7 @@ from collections import defaultdict
 import itertools
 
 
-def extract(tokens, pos_tagged_documents):
+def extract(tokens, pos_tagged_documents, ranked_docs):
 
     def to_graph(l):
         G = Graph()

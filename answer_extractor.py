@@ -6,6 +6,8 @@ and extract candidate answers for verification.
 '''
 from extractors import hum_ind
 from extractors import hum_ind_alchemy
+from extractors import num_count
+
 
 class Answer_extractor:
 
@@ -26,7 +28,7 @@ class Answer_extractor:
 
         num_map = {
             'code': 'num_code',
-            'count': 'num_count',
+            'count': num_count,
             'date': 'num_date',
             'dist': 'num_dist',
             'money': 'num_money',
