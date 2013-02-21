@@ -7,6 +7,7 @@ and extract candidate answers for verification.
 from extractors import hum_ind
 from extractors import hum_ind_alchemy
 from extractors import num_count
+from extractors import loc_country
 
 
 class Answer_extractor:
@@ -24,6 +25,19 @@ class Answer_extractor:
             'gr': 'hum_gr',
             'ind': hum_ind,
             'title': 'hum_title'
+        }
+
+        loc_map = {
+            'attr': '',
+            'bodwat': '',
+            'city': '',
+            'cont': '',
+            'country': loc_country,
+            'mount': '',
+            'other': '',
+            'rest': '',
+            'retail': '',
+            'state': ''
         }
 
         num_map = {
@@ -45,11 +59,13 @@ class Answer_extractor:
         self.extraction_map = {
             'hum': hum_map,
             'num': num_map,
+            'loc': loc_map,
         }
 
         self.extraction_map_alchemy = {
             'hum': hum_map_alchemy,
             'num': num_map,
+            'loc': loc_map,
         }
 
     def extract_answers(self, tokens,

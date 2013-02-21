@@ -10,7 +10,7 @@ import unittest
 class Test_pipeline(unittest.TestCase):
 
     def runTest(self):
-        question = ''
+        question = 'what countrys upper house of parliament is called the bundesrat'
         print 'Starting test'
         d = {"question": "[%s]" % question}
         req = urllib2.Request('http://ec2-50-17-103-0.compute-1.amazonaws.com:8009/')
@@ -21,7 +21,7 @@ class Test_pipeline(unittest.TestCase):
         all_answers = response['all_answers']
         print 'Best answer: %s' % best_answer
         print 'Other answers: %s' % all_answers
-        self.assertEqual(best_answer.lower(), '')
+        self.assertEqual(best_answer.lower(), 'germany')
 
 if __name__ == '__main__':
     unittest.main()
