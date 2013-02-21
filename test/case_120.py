@@ -1,4 +1,4 @@
-coding# -*- do: utf-8 -*-
+# -*- coding: utf-8 -*-
 '''
 
 '''
