@@ -8,6 +8,7 @@ from extractors import hum_ind
 from extractors import hum_ind_alchemy
 from extractors import num_count
 from extractors import loc_country
+from extractors import loc_cont
 
 
 class Answer_extractor:
@@ -31,7 +32,7 @@ class Answer_extractor:
             'attr': '',
             'bodwat': '',
             'city': '',
-            'cont': '',
+            'cont': loc_cont,
             'country': loc_country,
             'mount': '',
             'other': '',

@@ -14,17 +14,17 @@ def extract(tokens, pos_tagged_documents, ranked_docs):
     '''
 
     '''
-    countries_file = os.path.join(os.path.dirname(__file__),
-        '../resources/gazetteer_countries.txt')
-    with open(countries_file) as f:
-        countries_gazetteer = f.read().splitlines()
+    continents = [
+        'north america', 'south america', 'asia', 'europe', 'oceania',
+        'australia', 'africa', 'antarctica'
+
+    ]
 
     answer_freq = defaultdict(int)
     for doc in pos_tagged_documents:
         for token, tag in doc:
             if tag == 'NNP':
-                token = token.lower()
-                if token in countries_gazetteer:
+                if token.lower() in continents:
                     answer_freq[token] += 1
     best_answer = sorted(
         answer_freq.items(), key=lambda x: x[1], reverse=True)[0][0]

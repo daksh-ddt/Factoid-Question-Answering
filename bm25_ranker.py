@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 '''
+Rank candidate texts by their similarity to the query.
 
-
-
+@author: gavin hackeling
 '''
 from __future__ import division
 from nltk import word_tokenize
@@ -67,10 +67,8 @@ class BM25_calc:
             scores.append((s, document, document_index))
 
         scores.sort(key=lambda tup: tup[0], reverse=True)
-        #print 'Scored results:'
         originals = []
         for i in scores:
-            #print i
             originals.append(self.original_collection[i[2]])
 
         return originals

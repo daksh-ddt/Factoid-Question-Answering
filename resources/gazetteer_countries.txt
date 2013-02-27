@@ -1,250 +1,250 @@
-Aruba
-Antigua & Barbuda
-United Arab Emirates
-Afghanistan
-Algeria
-Azerbaijan
-Albania
-Armenia
-Andorra
-Angola
-Argentina
-Australia
-Ashmore & Cartier Islands
-Austria
-Anguilla
-Bahrain
-Barbados
-Botswana
-Bermuda
-Belgium
-Bahamas, The
-Bangladesh
-Belize
-Bosnia & Herzegovina
-Bolivia
-Burma
-Benin
-Belarus
-Soloman Islands
-Brazil
-Bassas Da India
-Bhutan
-Bulgaria
-Bouvet Island
-Brunei
-Burundi
-Canada
-Cambodia
-Chad
-Sri Lanka
-Congo
-Congo (Dem. Republic of The)-(Zaire)
-China
-Chile
-Cayman Islands
-Cocos (Keeling) Islands
-Cameroon
-Comoros
-Colombia
-Coral Sea Islands
-Costa Rica
-Central African Republic
-Cuba
-Cape Verde
-Cook Islands
-Cyprus
-Denmark
-Djibouti
-Dominica
-Dominican Republic
-Ecuador
-Egypt
-Ireland
-Equatorial Guinea
-Eritrea
-El Salvador
-Ethiopia
-Europa Island
-Czech Republic
-French Guiana
-Finland
-Fiji
-Falkland Islands (Islas Malvinas)
-Federated States of Micronesia
-Faroe Islands
-French Polynesia
-France
-French Southern & Antarctic Islands
-Gambia, The
-Gabon
-Georgia
-Ghana
-Gibraltar
-Grenada
-Guernsey
-Greenland
-Germany
-Glorioso Islands
-Guadeloupe
-Greece
-Guatemala
-Guinea
-Guyana
-Gaza Strip
-Haiti
-Hong Kong
-Heard Island & McDonald Islands
-Honduras
-Croatia
-Hungary
-Iceland
-Indonesia
-Man, Isle of
-India
-British Indian Ocean Terr.(Diego Garcia)
-Clipperton Island
-Iran
-Israel
-Italy
-Cote D'Ivoire (Ivory Coast)
-Iraq
-Japan
-Jersey
-Jamaica
-Jan Mayen
-Jordan
-Juan De Nova Island
-Kenya
-Kyrgyzstan
-Dem. Peoples Rep. of North Korea
-Kiribati
-Republic of South Korea
-Christmas Island
-Kuwait
-Kosovo
-Kazakhstan
-Laos
-Lebanon
-Latvia
-Lithuania
-Liberia
-Slovakia
-Liechtenstein
-Lesotho
-Luxembourg
-Libya
-Madagascar
-Martinique
-Macau
-Moldova
-Mayotte
-Mongolia
-Montserrat
-Malawi
-Montenegro
-Macedonia
-Mali
-Monaco
-Morocco
-Mauritius
-Mauritania
-Malta
-Oman
-Maldives
-Mexico
-Malaysia
-Mozambique
-New Caledonia
-Niue
-Norfolk Island
-Niger
-Vanuatu
-Nigeria
-Netherlands
-No Man's Land
-Norway
-Nepal
-Nauru
-Suriname
-Netherlands Antilles
-Nicaragua
-New Zealand
-OS
-Paraguay
-Pitcairn Islands
-Peru
-Paracel Islands
-Spratly Islands
-Pakistan
-Poland
-Panama
-Portugal
-Papua New Guinea
-Palau
-Guinea-Bissau
-Qatar
-Reunion
-Serbia
-Marshall Islands
-Romania
-Philippines
-Russia
-Rwanda
-Saudi Arabia
-St. Pierre & Miquelon
-St. Kitts & Nevis
-Seychelles
-South Africa
-Senegal
-St. Helena & Ascension Island
-Slovenia
-Sierra Leone
-San Marino
-Singapore
-Somalia
-Spain
-St. Lucia
-Sudan
-Svalbard
-Sweden
-South Georgia and the South Sandwich Islands
-Syria
-Switzerland
-Trinidad and Tobago
-Tromelin Island
-Thailand
-Tajikistan
-Turks & Caicos Islands
-Tokelau
-Tonga
-Togo
-Sao Tome & Principe
-Tunisia
-East Timor
-Turkey
-Tuvalu
-Taiwan
-Turkmenistan
-United Rep. of Tanzania
-Uganda
-United Kingdom
-Ukraine
-United States
-Burkina Faso
-Uruguay
-Uzbekistan
-St. Vincent & Grenadines
-Venezuela
-British Virgin Islands
-Vietnam
-Vatican City
-Namibia
-West Bank
-Wallis & Futuna
-Western Sahara
-Samoa
-Swaziland
-Yemen
-Zambia
-Zimbabwe
+aruba
+antigua & barbuda
+united arab emirates
+afghanistan
+algeria
+azerbaijan
+albania
+armenia
+andorra
+angola
+argentina
+australia
+ashmore & cartier islands
+austria
+anguilla
+bahrain
+barbados
+botswana
+bermuda
+belgium
+bahamas, the
+bangladesh
+belize
+bosnia & herzegovina
+bolivia
+burma
+benin
+belarus
+soloman islands
+brazil
+bassas da india
+bhutan
+bulgaria
+bouvet island
+brunei
+burundi
+canada
+cambodia
+chad
+sri lanka
+congo
+congo (dem. republic of the)-(zaire)
+china
+chile
+cayman islands
+cocos (keeling) islands
+cameroon
+comoros
+colombia
+coral sea islands
+costa rica
+central african republic
+cuba
+cape verde
+cook islands
+cyprus
+denmark
+djibouti
+dominica
+dominican republic
+ecuador
+egypt
+ireland
+equatorial guinea
+eritrea
+el salvador
+ethiopia
+europa island
+czech republic
+french guiana
+finland
+fiji
+falkland islands (islas malvinas)
+federated states of micronesia
+faroe islands
+french polynesia
+france
+french southern & antarctic islands
+gambia, the
+gabon
+georgia
+ghana
+gibraltar
+grenada
+guernsey
+greenland
+germany
+glorioso islands
+guadeloupe
+greece
+guatemala
+guinea
+guyana
+gaza strip
+haiti
+hong kong
+heard island & mcdonald islands
+honduras
+croatia
+hungary
+iceland
+indonesia
+man, isle of
+india
+british indian ocean terr.(diego garcia)
+clipperton island
+iran
+israel
+italy
+cote d'ivoire (ivory coast)
+iraq
+japan
+jersey
+jamaica
+jan mayen
+jordan
+juan de nova island
+kenya
+kyrgyzstan
+dem. peoples rep. of north korea
+kiribati
+republic of south korea
+christmas island
+kuwait
+kosovo
+kazakhstan
+laos
+lebanon
+latvia
+lithuania
+liberia
+slovakia
+liechtenstein
+lesotho
+luxembourg
+libya
+madagascar
+martinique
+macau
+moldova
+mayotte
+mongolia
+montserrat
+malawi
+montenegro
+macedonia
+mali
+monaco
+morocco
+mauritius
+mauritania
+malta
+oman
+maldives
+mexico
+malaysia
+mozambique
+new caledonia
+niue
+norfolk island
+niger
+vanuatu
+nigeria
+netherlands
+no man's land
+norway
+nepal
+nauru
+suriname
+netherlands antilles
+nicaragua
+new zealand
+os
+paraguay
+pitcairn islands
+peru
+paracel islands
+spratly islands
+pakistan
+poland
+panama
+portugal
+papua new guinea
+palau
+guinea-bissau
+qatar
+reunion
+serbia
+marshall islands
+romania
+philippines
+russia
+rwanda
+saudi arabia
+st. pierre & miquelon
+st. kitts & nevis
+seychelles
+south africa
+senegal
+st. helena & ascension island
+slovenia
+sierra leone
+san marino
+singapore
+somalia
+spain
+st. lucia
+sudan
+svalbard
+sweden
+south georgia and the south sandwich islands
+syria
+switzerland
+trinidad and tobago
+tromelin island
+thailand
+tajikistan
+turks & caicos islands
+tokelau
+tonga
+togo
+sao tome & principe
+tunisia
+east timor
+turkey
+tuvalu
+taiwan
+turkmenistan
+united rep. of tanzania
+uganda
+united kingdom
+ukraine
+united states
+burkina faso
+uruguay
+uzbekistan
+st. vincent & grenadines
+venezuela
+british virgin islands
+vietnam
+vatican city
+namibia
+west bank
+wallis & futuna
+western sahara
+samoa
+swaziland
+yemen
+zambia
+zimbabwe

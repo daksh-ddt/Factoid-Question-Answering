@@ -23,16 +23,18 @@ class SolrInterface(object):
             except UnicodeDecodeError:
                 print 'UnicodeDecodeError for %s' % document.text
             #self.si.commit()
-        #self.si.commit()
+        self.si.commit()
         print 'Added %s of %s documents' % (addedDocs, len(documents))
 
     # delete documents when complete
     def clearIndex(self):
-        self.si.delete_all()
-        self.si.commit()
+        #self.si.delete_all()
+        #self.si.commit()
         print 'Solr index has been cleared'
 
     def search(self, keywordsList):
+        # si.query(si.Q("game") | si.Q("black")
+        # si.query() | sq.query()
         queryTermList = []
         for keyword in keywordsList:
             queryTermList.append('self.si.Q("%s")' % keyword)
@@ -43,9 +45,16 @@ class SolrInterface(object):
         results = self.si.query(eval(queryString)).execute()
         return results
 
+    def search2(self, keyword):
+        self.si.commit()
+        results = self.si.query(features=keyword).execute()
+        return results
+
 
 if __name__ == '__main__':
     si = SolrInterface()
-    doc0 = document.Document(1, "hello world")
+    doc0 = document.Document(2, "hello face")
     docs = [doc0]
     si.indexDocuments(docs)
+    results = si.search2("hello")
+    print results
