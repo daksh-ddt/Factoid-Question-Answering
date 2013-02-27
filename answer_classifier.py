@@ -25,7 +25,13 @@ class Answer_classifier:
                     'symbol', 'techmeth',
                     'termeq', 'veh', 'word'],
             'HUM': ['desc', 'gr', 'ind', 'title'],
-            'LOC': ['city', 'country', 'mount', 'other', 'state'],
+            'LOC': ['address', 'airport', 'artificial', 'biome', 'bodwat',
+                    'celestial_body', 'city', 'constellation', 'continent',
+                    'coordinate', 'country', 'county', 'desert', 'direction',
+                    'island', 'lake', 'mountain', 'ocean', 'other', 'park',
+                    'planet', 'region', 'restaurant', 'retail', 'river',
+                    'school', 'sea', 'source', 'state', 'street', 'vague',
+                    'web_address'],
             'NUM': ['code', 'count', 'date', 'dist', 'money', 'ord', 'other',
                     'perc', 'period', 'speed', 'temp', 'volsize', 'weight']
         }

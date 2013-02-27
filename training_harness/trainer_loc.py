@@ -9,7 +9,13 @@ from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.svm import LinearSVC
 from sklearn.pipeline import Pipeline
 
-categories = ['city', 'country', 'mount', 'other', 'state']
+categories = ['address', 'airport', 'artificial', 'biome', 'bodwat',
+            'celestial_body', 'city', 'constellation', 'continent',
+            'coordinate', 'country', 'county', 'desert', 'direction',
+            'island', 'lake', 'mountain', 'ocean', 'other', 'park',
+            'planet', 'region', 'restaurant', 'retail', 'river',
+            'school', 'sea', 'source', 'state', 'street', 'vague',
+            'web_address']
 
 train_LOC = load_files(
     '../corpora/data/fine/LOC/',
