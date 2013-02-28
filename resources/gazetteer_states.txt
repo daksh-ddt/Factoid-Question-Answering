@@ -1,0 +1,117 @@
+alabama
+alaska
+arizona
+arkansas
+california
+colorado
+connecticut
+delaware
+florida
+georgia
+hawaii
+idaho
+illinois
+indiana
+iowa
+kansas
+kentucky
+louisiana
+maine
+maryland
+massachusetts
+michigan
+minnesota
+mississippi
+missouri
+montana
+nebraska
+nevada
+new hampshire
+new jersey
+new mexico
+new york
+north carolina
+north dakota
+ohio
+oklahoma
+oregon
+pennsylvania
+rhode island
+south carolina
+south dakota
+tennessee
+texas
+utah
+vermont
+virginia
+washington
+west virginia
+wisconsin
+wyoming
+district of columbia
+washington dc
+puerto rico
+guam
+american samoa
+u.s. virgin islands
+us virgin islands
+northern mariana islands
+ak
+al
+ar
+as
+az
+ca
+co
+ct
+dc
+de
+fl
+fm
+ga
+gu
+hi
+ia
+id
+il
+in
+ks
+ky
+la
+ma
+md
+me
+mh
+mi
+mn
+mo
+mp
+ms
+mt
+nc
+nd
+ne
+nh
+nj
+nm
+nv
+ny
+oh
+ok
+or
+pa
+pr
+pw
+ri
+sc
+sd
+tn
+tx
+ut
+va
+vi
+vt
+wa
+wi
+wv
+wy

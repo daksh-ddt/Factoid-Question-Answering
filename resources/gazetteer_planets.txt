@@ -1,0 +1,47 @@
+mercury
+venus
+earth
+mars
+jupiter
+saturn
+uranus
+neptune
+pluto
+krypton
+Alderaan
+Anoat
+Ansion
+Bespin
+Bogden
+Boz Pity
+Cato Neimoidia
+Corellia
+Coruscant
+Dagobah
+Dantooine
+Endor (moon)
+Felucia
+Geonosis
+Hoth
+Iego
+Kamino
+Kashyyyk
+Kessel
+Malastare
+Mustafar
+Mygeeto
+Naboo
+Nar Shaddaa 
+Smugglers' moon
+Ord Mantell
+Ord Mandell
+Polis Massa
+Saleucami
+Subterrel
+Sullust
+Taanab
+Tatooine
+Tund
+Utapau
+Yavin
+Yavin IV

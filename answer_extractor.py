@@ -4,11 +4,19 @@ Load the appropriate extraction module for the question type
 and extract candidate answers for verification.
 
 '''
-from extractors import hum_ind
-from extractors import hum_ind_alchemy
-from extractors import num_count
-from extractors import loc_country
-from extractors import loc_continent
+from extractors.hum import hum_ind
+from extractors.hum import hum_ind_alchemy
+from extractors.num import num_count
+from extractors.loc import loc_planet
+from extractors.loc import loc_continent
+from extractors.loc import loc_island
+from extractors.loc import loc_country
+from extractors.loc import loc_state
+from extractors.loc import loc_county
+from extractors.loc import loc_airport
+from extractors.loc import loc_ocean
+from extractors.loc import loc_sea
+from extractors.loc import loc_desert
 
 
 class Answer_extractor:
@@ -30,7 +38,7 @@ class Answer_extractor:
 
         loc_map = {
             'address': '',
-            'airport': '',
+            'airport': loc_airport,
             'artificial': '',
             'biome': '',
             'bodwat': '',
@@ -40,24 +48,24 @@ class Answer_extractor:
             'continent': loc_continent,
             'coordinate': '',
             'country': loc_country,
-            'county': '',
-            'desert': '',
+            'county': loc_county,
+            'desert': loc_desert,
             'direction': '',
-            'island': '',
+            'island': loc_island,
             'lake': '',
             'mountain': '',
-            'ocean': '',
+            'ocean': loc_ocean,
             'other': '',
             'park': '',
-            'planet': '',
+            'planet': loc_planet,
             'region': '',
             'restaurant': '',
             'retail': '',
             'river': '',
             'school': '',
-            'sea': '',
+            'sea': loc_sea,
             'source': '',
-            'state': '',
+            'state': loc_states,
             'street': '',
             'vague': '',
             'web_address': ''
