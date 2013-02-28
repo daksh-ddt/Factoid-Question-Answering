@@ -40,6 +40,7 @@ class MainHandler(tornado.web.RequestHandler):
         # Build a query
         answer.query, filtered_keywords, tokens = \
             query_builder.build_query(question)
+        print 'Query', answer.query
 
         # Retrieve search results from Bing
         search_results = bing_interface.search(answer.query, 10)

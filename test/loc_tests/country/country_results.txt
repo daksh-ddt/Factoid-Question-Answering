@@ -1,0 +1,346 @@
+Adding 122
+Adding 108
+Adding 146
+Adding 121
+Adding 174
+Adding 187
+Adding 180
+Adding 119
+Adding 106
+Adding 176
+Adding 136
+Adding 166
+Adding 188
+Adding 158
+Adding 139
+Adding 192
+Adding 144
+Adding 116
+Adding 172
+Adding 112
+Adding 151
+Adding 167
+Adding 184
+Adding 115
+Adding 134
+Adding 182
+Adding 140
+Adding 103
+Adding 173
+Adding 165
+Adding 100
+Adding 161
+Adding 170
+Adding 183
+Adding 179
+Adding 148
+Adding 163
+Adding 193
+Adding 101
+Adding 110
+Adding 125
+Adding 142
+Adding 118
+Adding 124
+Adding 177
+Adding 169
+Adding 117
+Adding 185
+Adding 159
+Adding 123
+Adding 104
+Adding 191
+Adding 132
+Adding 194
+Adding 128
+Adding 178
+Adding 190
+Adding 129
+Adding 156
+Adding 196
+Adding 130
+Adding 157
+Adding 162
+Adding 155
+Adding 145
+Adding 127
+Adding 153
+Adding 131
+Adding 189
+Adding 113
+Adding 143
+Adding 109
+Adding 137
+Adding 126
+Adding 133
+Adding 175
+Adding 102
+Adding 147
+Adding 171
+Adding 164
+Adding 195
+Adding 105
+Adding 154
+Adding 135
+Adding 160
+Adding 111
+Adding 199
+Adding 138
+Adding 197
+Adding 114
+Adding 198
+Adding 150
+Adding 181
+Adding 149
+Adding 186
+Adding 168
+Adding 107
+Adding 141
+Adding 120
+Adding 152
+
+
+Starting test
+Starting test
+Best answer: germany
+Other answers: None
+Starting test
+Best answer: ghana
+Other answers: None
+Starting test
+Best answer: china
+Other answers: None
+Starting test
+Best answer: china
+Other answers: None
+Starting test
+Best answer: germany
+Other answers: None
+Starting test
+Best answer: spain
+Other answers: None
+Starting test
+Best answer: venezuela
+Other answers: None
+Starting test
+Best answer: ghana
+Other answers: None
+Starting test
+Best answer: poland
+Other answers: None
+Starting test
+Best answer: iran
+Other answers: None
+Starting test
+Best answer: turkey
+Other answers: None
+Starting test
+Starting test
+Best answer: spain
+Other answers: None
+Starting test
+Best answer: tunisia
+Other answers: None
+Starting test
+Best answer: azerbaijan
+Other answers: None
+Starting test
+Best answer: norway
+Other answers: None
+Starting test
+Best answer: france
+Other answers: None
+Starting test
+Best answer: china
+Other answers: None
+Starting test
+Best answer: sudan
+Other answers: None
+Starting test
+Starting test
+Starting test
+Best answer: mexico
+Other answers: None
+Starting test
+Best answer: iraq
+Other answers: None
+Starting test
+Best answer: afghanistan
+Other answers: None
+Starting test
+Best answer: russia
+Other answers: None
+Starting test
+Best answer: norway
+Other answers: None
+Starting test
+Best answer: sweden
+Other answers: None
+Starting test
+Best answer: china
+Other answers: None
+Starting test
+Best answer: switzerland
+Other answers: None
+Starting test
+Best answer: austria
+Other answers: None
+Starting test
+Best answer: india
+Other answers: None
+Starting test
+Best answer: india
+Other answers: None
+Starting test
+Best answer: georgia
+Other answers: None
+Starting test
+Starting test
+Starting test
+Starting test
+Best answer: mexico
+Other answers: None
+Starting test
+Best answer: norway
+Other answers: None
+Starting test
+Best answer: turkey
+Other answers: None
+Starting test
+Best answer: iran
+Other answers: None
+Starting test
+Best answer: norway
+Other answers: None
+Starting test
+Best answer: russia
+Other answers: None
+Starting test
+Best answer: iran
+Other answers: None
+Starting test
+Best answer: latvia
+Other answers: None
+Starting test
+Best answer: canada
+Other answers: None
+Starting test
+Best answer: germany
+Other answers: None
+Starting test
+Starting test
+Best answer: denmark
+Other answers: None
+Starting test
+Best answer: china
+Other answers: None
+Starting test
+Best answer: kuwait
+Other answers: None
+Starting test
+Starting test
+Starting test
+Best answer: iran
+Other answers: None
+Starting test
+Best answer: china
+Other answers: None
+Starting test
+Best answer: latvia
+Other answers: None
+Starting test
+Starting test
+Best answer: china
+Other answers: None
+Starting test
+Best answer: france
+Other answers: None
+Starting test
+Starting test
+Best answer: china
+Other answers: None
+Starting test
+Best answer: denmark
+Other answers: None
+Starting test
+Best answer: germany
+Other answers: None
+Starting test
+Best answer: denmark
+Other answers: None
+Starting test
+Best answer: italy
+Other answers: None
+Starting test
+Best answer: sudan
+Other answers: None
+Starting test
+Best answer: russia
+Other answers: None
+Starting test
+Best answer: japan
+Other answers: None
+Starting test
+Best answer: kenya
+Other answers: None
+Starting test
+Best answer: india
+Other answers: None
+Starting test
+Best answer: norway
+Other answers: None
+Starting test
+Best answer: japan
+Other answers: None
+Starting test
+Starting test
+Best answer: iran
+Other answers: None
+Starting test
+Best answer: afghanistan
+Other answers: None
+Starting test
+Best answer: turkey
+Other answers: None
+Starting test
+Starting test
+Starting test
+Best answer: portugal
+Other answers: None
+Starting test
+Best answer: china
+Other answers: None
+Starting test
+Best answer: macedonia
+Other answers: None
+Starting test
+Best answer: sweden
+Other answers: None
+Starting test
+Best answer: germany
+Other answers: None
+Starting test
+Best answer: afghanistan
+Other answers: None
+Starting test
+Starting test
+Starting test
+Starting test
+Best answer: denmark
+Other answers: None
+Starting test
+Starting test
+Best answer: turkey
+Other answers: None
+Starting test
+Starting test
+Starting test
+Best answer: portugal
+Other answers: None
+Starting test
+Starting test
+Starting test
+Starting test
+Best answer: france
+Other answers: None
+Starting test

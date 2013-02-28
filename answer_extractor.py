@@ -8,7 +8,7 @@ from extractors import hum_ind
 from extractors import hum_ind_alchemy
 from extractors import num_count
 from extractors import loc_country
-from extractors import loc_cont
+from extractors import loc_continent
 
 
 class Answer_extractor:
@@ -29,16 +29,38 @@ class Answer_extractor:
         }
 
         loc_map = {
-            'attr': '',
+            'address': '',
+            'airport': '',
+            'artificial': '',
+            'biome': '',
             'bodwat': '',
+            'celestial_body': '',
             'city': '',
-            'cont': loc_cont,
+            'constellation': '',
+            'continent': loc_continent,
+            'coordinate': '',
             'country': loc_country,
-            'mount': '',
+            'county': '',
+            'desert': '',
+            'direction': '',
+            'island': '',
+            'lake': '',
+            'mountain': '',
+            'ocean': '',
             'other': '',
-            'rest': '',
+            'park': '',
+            'planet': '',
+            'region': '',
+            'restaurant': '',
             'retail': '',
-            'state': ''
+            'river': '',
+            'school': '',
+            'sea': '',
+            'source': '',
+            'state': '',
+            'street': '',
+            'vague': '',
+            'web_address': ''
         }
 
         num_map = {
@@ -58,15 +80,55 @@ class Answer_extractor:
         }
 
         self.extraction_map = {
-            'hum': hum_map,
-            'num': num_map,
-            'loc': loc_map,
+            'abbr': 'hum_map',
+            'exp': 'num_map',
+        }
+
+        abbr_map = {
+            'hum': 'hum_map',
+            'num': 'num_map',
+            'loc': 'loc_map',
+        }
+
+        desc_map = {
+            'def': 'hum_map',
+            'desc': 'num_map',
+            'manner': 'loc_map',
+            'reason': 'loc_map',
+        }
+
+        enty_map = {
+            'animal': '',
+            'body': '',
+            'color': '',
+            'cremat': '',
+            'currency': '',
+            'dismed': '',
+            'event': '',
+            'food': '',
+            'instru': '',
+            'lang': '',
+            'letter': '',
+            'other': '',
+            'plant': '',
+            'product': '',
+            'religion': '',
+            'sport': '',
+            'substance': '',
+            'symbol': '',
+            'techmeth': '',
+            'termeq': '',
+            'veh': '',
+            'word': ''
         }
 
         self.extraction_map_alchemy = {
+            'abbr': abbr_map,
+            'desc': desc_map,
+            'enty': enty_map,
             'hum': hum_map_alchemy,
-            'num': num_map,
             'loc': loc_map,
+            'num': num_map,
         }
 
     def extract_answers(self, tokens,

@@ -10,10 +10,11 @@ import unittest
 class Test_pipeline(unittest.TestCase):
 
     def runTest(self):
-        question = ''
-        print 'who painted Guernica?'
+        question = 'who is han solos wookie companion'
+        print question
         d = {"question": "[%s]" % question}
         req = urllib2.Request('http://ec2-50-17-103-0.compute-1.amazonaws.com:8009/')
+        # req = urllib2.Request('http://127.0.0.1:8009/')
         req.add_header('Content-Type', 'application/json')
         response = urllib2.urlopen(req, json.dumps(d)).read()
         response = json.loads(response)
@@ -21,7 +22,7 @@ class Test_pipeline(unittest.TestCase):
         all_answers = response['all_answers']
         print 'Best answer: %s' % best_answer
         print 'Other answers: %s' % all_answers
-        self.assertEqual(best_answer.lower(), 'pablo picasso')
+        self.assertEqual(best_answer.lower(), 'chewbacca')
 
 if __name__ == '__main__':
     unittest.main()

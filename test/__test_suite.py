@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+'''
+THIS WILL NOT WORK UNTIL DIRECTORIES ARE ADDED
+'''
 import os
 import glob
 import unittest
