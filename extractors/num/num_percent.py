@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 '''
+TODO: this needs work
+
 7%
 5 percent
 3.90%
@@ -28,9 +30,9 @@ def extract(tokens, pos_tagged_documents, ranked_docs):
     for doc in pos_tagged_documents:
         for index, (token, tag) in enumerate(doc):
             if tag == 'CD':
-                print token
-                if doc[i+1][0] in percent_surface_forms:
+                if doc[index + 1][0] in percent_surface_forms:
                     print token, '%'
+                    answer_freq[token] += 1
                 #if letters_regex.search(token) is not None:
                     #token = convert_to_numeral(token.lower())
                     #num = float(token)
@@ -52,8 +54,6 @@ def extract(tokens, pos_tagged_documents, ranked_docs):
     if str(best_answer).endswith('.0'):
         best_answer = int(best_answer)
     return best_answer
-
-
 
 
 def convert_to_numeral(textnum, numwords={}):

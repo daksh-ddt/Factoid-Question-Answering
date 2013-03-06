@@ -9,7 +9,8 @@ from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.svm import LinearSVC
 from sklearn.pipeline import Pipeline
 
-categories = ['HUM', 'LOC', 'NUM', 'ENTY', 'DESC', 'ABBR']
+#categories = ['HUM', 'LOC', 'NUM', 'ENTY', 'DESC', 'ABBR', 'UTIL']
+categories = ['HUM', 'LOC', 'NUM', 'ENTY', 'DESC', 'ABBR', ]
 
 train_COARSE = load_files(
     '../corpora/data/coarse/',

@@ -1,0 +1,283 @@
+$
+.د.ب
+.ރ
+abkhazian apsar[a]
+afghan afghani
+albanian lek
+alderney pound[a]
+algerian dinar
+angolan kwanza
+ar
+argentine peso
+armenian dram
+aruban florin
+ascension pound[a]
+australian dollar
+azerbaijani manat
+b/.
+bahamian dollar
+bahraini dinar
+bangladeshi taka
+barbadian dollar
+belarusian ruble
+belize dollar
+bermudian dollar
+bhutanese ngultrum
+bolivian boliviano
+bosnia and herzegovina convertible mark
+botswana pula
+br
+brazilian real
+british pound
+british pound[c]
+british virgin islands dollar[a]
+brunei dollar
+bs f
+bs.
+bulgarian lev
+burmese kyat
+burundian franc
+c$
+cambodian riel
+canadian dollar
+cape verdean escudo
+cayman islands dollar
+cent
+central african cfa franc
+cents
+cfp franc
+chilean peso
+chinese yuan
+colombian peso
+comorian franc
+congolese franc
+costa rican colón
+croatian kuna
+cuban convertible peso
+cup
+czech koruna
+d
+danish krone
+db
+djiboutian franc
+dollar
+dollars
+dominican peso
+east caribbean dollar
+egyptian pound
+eritrean nakfa
+esc
+ethiopian birr
+eur
+euro
+euro[i]
+euros
+falkland islands pound
+fijian dollar
+fr
+ft
+g
+gambian dalasi
+gbp
+georgian lari
+ggp
+ghana cedi
+gibraltar pound
+guatemalan quetzal
+guinean franc
+guyanese dollar
+haitian gourde
+honduran lempira
+hong kong dollar
+hungarian forint
+icelandic króna
+imp
+indian rupee
+indonesian rupiah
+inr
+iranian rial
+iraqi dinar
+israeli new shekel
+jamaican dollar
+japanese yen
+jep
+jod
+jordanian dinar
+k
+kazakhstani tenge
+kenyan shilling
+km or км
+kn
+kr
+ks
+kuwaiti dinar
+kyrgyzstani som
+kz
+kč
+l
+lao kip
+latvian lats
+le
+lebanese pound
+lesotho loti
+liberian dollar
+libyan dinar
+lithuanian litas
+ls
+lt
+m
+macanese pataca
+macedonian denar
+mad
+malagasy ariary
+malawian kwacha
+malaysian ringgit
+maldivian rufiyaa
+mauritanian ouguiya
+mauritian rupee
+mexican peso
+micronesian dollar[a]
+mk
+moldovan leu
+mongolian tögrög
+moroccan dirham
+mozambican metical
+mro
+mt
+namibian dollar
+nepalese rupee
+netherlands antillean guilder
+new taiwan dollar
+new zealand dollar
+nfk
+nicaraguan córdoba
+nigerian naira
+none
+north korean won
+norwegian krone
+nu.
+omani rial
+p
+pakistani rupee
+palauan dollar[a]
+panamanian balboa
+papua new guinean kina
+paraguayan guaraní
+peruvian nuevo sol
+philippine peso
+polish złoty
+pounds
+ptas
+q
+qatari riyal
+r
+r$
+rm
+romanian leu
+rp
+rs
+rub
+russian ruble
+rwandan franc
+s/.
+saint helena pound
+salvadoran colón
+samoan tālā
+saudi riyal
+serbian dinar
+seychellois rupee
+sgd
+sh
+shp
+sierra leonean leone
+solomon islands dollar
+somali shilling
+somaliland shilling
+south african rand
+south korean won
+south sudanese pound
+sri lankan rupee
+sudanese pound
+surinamese dollar
+swazi lilangeni
+swedish krona
+swiss franc
+syrian pound
+são tomé and príncipe dobra
+t
+t$
+tajikistani somoni
+tanzanian shilling
+thai baht
+tongan paʻanga
+transnistrian ruble
+trinidad and tobago dollar
+tunisian dinar
+turkish lira
+turkmenistan manat
+ugandan shilling
+ukrainian hryvnia
+um
+united arab emirates dirham
+united states dollar
+uruguayan peso
+usd
+uzbekistani som
+vanuatu vatu
+venezuelan bolívar
+vietnamese đồng
+vt
+west african cfa franc
+yemeni rial
+zambian kwacha
+zar
+zk
+zwl
+zł
+£
+£ or ج.م
+£ or ل.س
+¥
+¥ or 元
+ƒ
+ден
+дин. or din.
+лв
+р.
+руб.
+ѕм
+դր.
+֏
+؋
+د. م.
+د.إ
+د.ا
+د.ت
+د.ج
+د.ك
+د.م.
+ر.س
+ر.ع.
+ر.ق
+ع.د
+ل.د
+ل.ل
+৳
+฿
+ლ
+៛
+₡
+₦
+₨
+₩
+₪
+₫
+€
+₭
+₮
+₱
+₲
+₴
+₵
+₸
+﷼

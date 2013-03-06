@@ -10,7 +10,7 @@ import unittest
 class Test_pipeline(unittest.TestCase):
 
     def runTest(self):
-        question = 'what company makes iPods'
+        question = 'how much does a new 16gb iphone 5 cost off contract?'
         print 'Starting test'
         d = {"question": "[%s]" % question}
         #req = urllib2.Request('http://ec2-50-17-103-0.compute-1.amazonaws.com:8009/')

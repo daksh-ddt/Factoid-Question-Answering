@@ -15,7 +15,7 @@ class Answer_classifier:
     def __init__(self):
         self.base_path = os.path.dirname(__file__)
         self.coarse_target_names = [
-            'ABBR', 'DESC', 'ENTY', 'HUM', 'LOC', 'NUM']
+            'ABBR', 'DESC', 'ENTY', 'HUM', 'LOC', 'NUM', 'UTIL']
         self.fine_target_names = {
             'ABBR': ['abb', 'exp'],
             'DESC': ['def', 'desc', 'manner', 'reason'],
@@ -33,7 +33,8 @@ class Answer_classifier:
                     'school', 'sea', 'source', 'state', 'street', 'vague',
                     'web_address'],
             'NUM': ['code', 'count', 'date', 'dist', 'money', 'ord', 'other',
-                    'perc', 'period', 'speed', 'temp', 'volsize', 'weight']
+                    'perc', 'period', 'speed', 'temp', 'volsize', 'weight'],
+            'UTIL': ['more', 'wrong'],
         }
 
         # Load the coarse and fine classifiers
@@ -72,6 +73,11 @@ class Answer_classifier:
         fine_num_classifier = pickle.load(model_pickle)
         model_pickle.close()
 
+        model_pickle = open(
+            os.path.join(self.base_path, 'training_model/fine_util.p'))
+        fine_util_classifier = pickle.load(model_pickle)
+        model_pickle.close()
+
         self.fine_classifiers = {
             'ABBR': fine_abbr_classifier,
             'DESC': fine_desc_classifier,
@@ -79,6 +85,7 @@ class Answer_classifier:
             'HUM': fine_hum_classifier,
             'LOC': fine_loc_classifier,
             'NUM': fine_num_classifier,
+            'UTIL': fine_util_classifier,
         }
 
     def predict_answer_type(self, question):

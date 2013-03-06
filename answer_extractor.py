@@ -20,7 +20,6 @@ from extractors.hum import hum_gr
 from extractors.hum import hum_gr_alchemy
 # hum_title is not functional
 from extractors.hum import hum_title
-from extractors.num import num_count
 from extractors.loc import loc_planet
 from extractors.loc import loc_continent
 from extractors.loc import loc_island
@@ -31,11 +30,25 @@ from extractors.loc import loc_airport
 from extractors.loc import loc_ocean
 from extractors.loc import loc_sea
 from extractors.loc import loc_desert
+from extractors.num import num_count
+# num_percent needs work
+from extractors.num import num_percent
+from extractors.num import num_dist
+from extractors.num import num_money
+from extractors.num import num_ord
+from extractors.util import more
+from extractors.util import wrong
+
 
 
 class Answer_extractor:
 
     def __init__(self):
+        util_map = {
+            'more': more,
+            'wrong': wrong,
+        }
+
         hum_map_alchemy = {
             'desc': hum_desc,
             'gr': hum_gr_alchemy,
@@ -89,11 +102,11 @@ class Answer_extractor:
             'code': 'num_code',
             'count': num_count,
             'date': 'num_date',
-            'dist': 'num_dist',
-            'money': 'num_money',
-            'ord': 'num_ord',
+            'dist': num_dist,
+            'money': num_money,
+            'ord': num_ord,
             'other': 'num_other',
-            'perc': 'num_perc',
+            'perc': num_percent,
             'period': 'num_period',
             'speed': 'num_speed',
             'temp': 'num_temp',
@@ -170,6 +183,7 @@ class Answer_extractor:
             'hum': hum_map,
             'loc': loc_map,
             'num': num_map,
+            'util': util_map
         }
 
         self.extraction_map_alchemy = {
@@ -179,6 +193,7 @@ class Answer_extractor:
             'hum': hum_map_alchemy,
             'loc': loc_map,
             'num': num_map,
+            'util': util_map
         }
 
     def extract_answers(self, tokens,

@@ -13,7 +13,7 @@ import re
 
 def extract(tokens, pos_tagged_documents, ranked_docs):
     '''
-    TOD) clean this up and test more
+    TODO clean this up and test more
     '''
     numerals_regex = re.compile(r'^[0-9]+\.[0-9]+$')
     fraction_regex = re.compile(r'[0-9]+/[0-9]+')

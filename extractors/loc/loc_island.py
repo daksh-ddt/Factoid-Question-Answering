@@ -12,7 +12,7 @@ def extract(tokens, pos_tagged_documents, ranked_docs):
 
     '''
     countries_file = os.path.join(os.path.dirname(__file__),
-        '../resources/gazetteer_islands_long.txt')
+        '../../resources/gazetteer_islands_long.txt')
     with open(countries_file) as f:
         countries_gazetteer = f.read().splitlines()
 
