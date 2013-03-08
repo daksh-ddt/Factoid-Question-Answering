@@ -63,4 +63,4 @@ def extract(tokens, pos_tagged_documents, ranked_docs):
             answer = i[0].replace('~', ' ')
             break
 
-    return answer
+    return 'factoid', answer, None, None

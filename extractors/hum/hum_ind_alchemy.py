@@ -73,6 +73,6 @@ def extract(tokens, pos_tagged_documents, ranked_docs):
 
     for i in answer_freq.items():
         print i, answer_freq[i]
-    answer = sorted(
+    answers = sorted(
         answer_freq.items(), key=lambda x: x[1], reverse=True)[0]
-    return answer[0]
+    return 'factoid', answers[0], answers, None

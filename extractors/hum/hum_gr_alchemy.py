@@ -62,6 +62,6 @@ def extract(tokens, pos_tagged_documents, ranked_docs):
                 else:
                     print 'WARNING: %s in %s' % (entity_name, q)
 
-    answer = sorted(
+    answers = sorted(
         answer_freq.items(), key=lambda x: x[1], reverse=True)[0]
-    return answer[0]
+    return 'factoid', answers[0], answers, None

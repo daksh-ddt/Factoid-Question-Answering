@@ -10,12 +10,12 @@ from nltk import pos_tag
 from nltk import word_tokenize
 
 
-def create_documents(data, filtered_keywords, tokens):
+def create(data, filtered_keywords, tokens):
     documents = [result['Description'] for result in data]
-    return filter_documents(documents, filtered_keywords, tokens)
+    return filter(documents, filtered_keywords, tokens)
 
 
-def filter_documents(documents, filtered_keywords, tokens):
+def filter(documents, filtered_keywords, tokens):
     sentences = []
     for d in documents:
         sentences.extend(sent_tokenize(d))

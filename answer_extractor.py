@@ -201,11 +201,11 @@ class Answer_extractor:
                         coarse, fine, keywordsList, use_alchemy):
         if not use_alchemy:
             extractor = self.extraction_map[coarse][fine]
-            ranked_answers = extractor.extract(
-                tokens, pos_tagged_documents, ranked_docs)
+            question_type, best_answer, all_answers, supplement = \
+            extractor.extract(tokens, pos_tagged_documents, ranked_docs)
         else:
             print('using alchemy api')
             extractor = self.extraction_map_alchemy[coarse][fine]
-            ranked_answers = extractor.extract(
-                tokens, pos_tagged_documents, ranked_docs)
-        return ranked_answers
+            question_type, best_answer, all_answers, supplement = \
+            extractor.extract(tokens, pos_tagged_documents, ranked_docs)
+        return question_type, best_answer, all_answers, supplement
