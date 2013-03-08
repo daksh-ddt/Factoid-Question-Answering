@@ -18,7 +18,7 @@ import re
 from nltk import sent_tokenize
 from nltk import word_tokenize
 from nltk import pos_tag
-import coref_resolver
+from nlp import coref_resolver
 
 
 def extract(tokens, pos_tagged_documents, ranked_docs):

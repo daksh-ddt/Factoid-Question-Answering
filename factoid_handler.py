@@ -2,9 +2,9 @@
 import json
 import answer_classifier as classifier
 from model import answer as Answer
-import query_builder
-import bing_interface
-import document_creator
+from ir import query_builder
+from interfaces import bing_interface
+from ir import document_creator
 import answer_extractor as ae
 
 
