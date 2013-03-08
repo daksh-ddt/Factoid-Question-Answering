@@ -17,7 +17,7 @@ class APIHandler(tornado.web.RequestHandler):
 
     def get(self):
         # Retrieve the question
-        question = self.get_argument("question", strip=True)
+        question = [self.get_argument("question", strip=True)]
         print 'Question:', question
         response = factoid.answer(question)
         self.write(response)
