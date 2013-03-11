@@ -39,42 +39,42 @@ class Answer_classifier:
 
         # Load the coarse and fine classifiers
         model_pickle = open(
-            os.path.join(self.base_path, 'training_model/coarse.p'))
+            os.path.join(self.base_path, 'training_models/coarse.p'))
         self.coarse_classifier = pickle.load(model_pickle)
         model_pickle.close()
 
         model_pickle = open(
-            os.path.join(self.base_path, 'training_model/fine_abbr.p'))
+            os.path.join(self.base_path, 'training_models/fine_abbr.p'))
         fine_abbr_classifier = pickle.load(model_pickle)
         model_pickle.close()
 
         model_pickle = open(
-            os.path.join(self.base_path, 'training_model/fine_desc.p'))
+            os.path.join(self.base_path, 'training_models/fine_desc.p'))
         fine_desc_classifier = pickle.load(model_pickle)
         model_pickle.close()
 
         model_pickle = open(
-            os.path.join(self.base_path, 'training_model/fine_enty.p'))
+            os.path.join(self.base_path, 'training_models/fine_enty.p'))
         fine_enty_classifier = pickle.load(model_pickle)
         model_pickle.close()
 
         model_pickle = open(
-            os.path.join(self.base_path, 'training_model/fine_hum.p'))
+            os.path.join(self.base_path, 'training_models/fine_hum.p'))
         fine_hum_classifier = pickle.load(model_pickle)
         model_pickle.close()
 
         model_pickle = open(
-            os.path.join(self.base_path, 'training_model/fine_loc.p'))
+            os.path.join(self.base_path, 'training_models/fine_loc.p'))
         fine_loc_classifier = pickle.load(model_pickle)
         model_pickle.close()
 
         model_pickle = open(
-            os.path.join(self.base_path, 'training_model/fine_num.p'))
+            os.path.join(self.base_path, 'training_models/fine_num.p'))
         fine_num_classifier = pickle.load(model_pickle)
         model_pickle.close()
 
         model_pickle = open(
-            os.path.join(self.base_path, 'training_model/fine_util.p'))
+            os.path.join(self.base_path, 'training_models/fine_util.p'))
         fine_util_classifier = pickle.load(model_pickle)
         model_pickle.close()
 

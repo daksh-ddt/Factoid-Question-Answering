@@ -49,7 +49,6 @@ class Factoid_handler:
             answer.predicted_coarse,
             answer.predicted_fine,
             filtered_keywords,
-            True,
         )
 
         # Populate, serialize and return the Answer

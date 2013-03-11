@@ -15,9 +15,7 @@ from extractors.desc import desc_desc
 # hum_desc is not functional
 from extractors.hum import hum_desc
 from extractors.hum import hum_ind
-from extractors.hum import hum_ind_alchemy
 from extractors.hum import hum_gr
-from extractors.hum import hum_gr_alchemy
 # hum_title is not functional
 from extractors.hum import hum_title
 from extractors.loc import loc_planet
@@ -31,6 +29,7 @@ from extractors.loc import loc_ocean
 from extractors.loc import loc_sea
 from extractors.loc import loc_desert
 from extractors.num import num_count
+from extractors.num import date
 # num_percent needs work
 from extractors.num import num_percent
 from extractors.num import num_dist
@@ -47,13 +46,6 @@ class Answer_extractor:
         util_map = {
             'more': more,
             'wrong': wrong,
-        }
-
-        hum_map_alchemy = {
-            'desc': hum_desc,
-            'gr': hum_gr_alchemy,
-            'ind': hum_ind_alchemy,
-            'title': hum_title,
         }
 
         hum_map = {
@@ -101,7 +93,7 @@ class Answer_extractor:
         num_map = {
             'code': 'num_code',
             'count': num_count,
-            'date': 'num_date',
+            'date': date,
             'dist': num_dist,
             'money': num_money,
             'ord': num_ord,
@@ -124,31 +116,6 @@ class Answer_extractor:
             'desc': desc_desc,
             'manner': desc_manner,
             'reason': desc_reason,
-        }
-
-        enty_map_alchemy = {
-            'animal': '',
-            'body': '',
-            'color': '',
-            'cremat': '',
-            'currency': '',
-            'dismed': '',
-            'event': '',
-            'food': '',
-            'instru': '',
-            'lang': '',
-            'letter': '',
-            'other': '',
-            'plant': '',
-            'product': '',
-            'religion': '',
-            'sport': '',
-            'substance': '',
-            'symbol': '',
-            'techmeth': '',
-            'termeq': '',
-            'veh': '',
-            'word': ''
         }
 
         enty_map = {
@@ -186,26 +153,8 @@ class Answer_extractor:
             'util': util_map
         }
 
-        self.extraction_map_alchemy = {
-            'abbr': abbr_map,
-            'desc': desc_map,
-            'enty': enty_map_alchemy,
-            'hum': hum_map_alchemy,
-            'loc': loc_map,
-            'num': num_map,
-            'util': util_map
-        }
-
-    def extract_answers(self, tokens,
-                        pos_tagged_documents, ranked_docs,
-                        coarse, fine, keywordsList, use_alchemy):
-        if not use_alchemy:
-            extractor = self.extraction_map[coarse][fine]
-            question_type, best_answer, all_answers, supplement = \
-            extractor.extract(tokens, pos_tagged_documents, ranked_docs)
-        else:
-            print('using alchemy api')
-            extractor = self.extraction_map_alchemy[coarse][fine]
-            question_type, best_answer, all_answers, supplement = \
-            extractor.extract(tokens, pos_tagged_documents, ranked_docs)
+    def extract_answers(self, tokens, pos_tagged_documents, ranked_docs,
+                        coarse, fine, keywordsList):
+        extractor = self.extraction_map[coarse][fine]
+        question_type, best_answer, all_answers, supplement = extractor.extract(tokens, pos_tagged_documents, ranked_docs)
         return question_type, best_answer, all_answers, supplement

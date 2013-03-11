@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 '''
+Airport names should possibly be separate from airport codes in both
+the gazetteer and the classifier labels
 
 '''
 from __future__ import division
@@ -23,6 +25,6 @@ def extract(tokens, pos_tagged_documents, ranked_docs):
                 token = token.lower()
                 if token in countries_gazetteer:
                     answer_freq[token] += 1
-    best_answer = sorted(
-        answer_freq.items(), key=lambda x: x[1], reverse=True)[0][0]
-    return best_answer
+    answers = sorted(
+        answer_freq.items(), key=lambda x: x[1], reverse=True)
+    return 'factoid', answers[0], answers, None
