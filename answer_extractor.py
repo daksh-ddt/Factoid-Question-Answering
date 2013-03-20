@@ -35,9 +35,9 @@ from extractors.num import num_percent
 from extractors.num import num_dist
 from extractors.num import num_money
 from extractors.num import num_ord
+from extractors.enty import color
 from extractors.util import more
 from extractors.util import wrong
-
 
 
 class Answer_extractor:
@@ -121,7 +121,7 @@ class Answer_extractor:
         enty_map = {
             'animal': '',
             'body': '',
-            'color': '',
+            'color': color,
             'cremat': '',
             'currency': '',
             'dismed': '',
