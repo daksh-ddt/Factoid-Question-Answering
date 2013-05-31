@@ -13,18 +13,15 @@ from tornado.options import define, options
 import factoid_handler
 
 
-class APIHandler(tornado.web.RequestHandler):
-
+class AnswerHandler(tornado.web.RequestHandler):
     def get(self):
         # Retrieve the question
-        question = [self.get_argument("q", strip=True)]
-        print 'Question:', question
+        question = [self.get_argument("question", strip=True)]
         response = factoid.answer(question)
         self.write(response)
 
 
-class MainHandler(tornado.web.RequestHandler):
-
+class DemoHandler(tornado.web.RequestHandler):
     def get(self):
         self.render('ask_get.html')
 
@@ -32,14 +29,13 @@ class MainHandler(tornado.web.RequestHandler):
         # Retrieve the question
         data_json = tornado.escape.json_decode(self.request.body)
         question = [data_json['question']]
-        print 'Question:', question
         response = factoid.answer(question)
         self.write(response)
 
 
 handlers = [
-            (r"/", MainHandler),
-            (r"/f", APIHandler)
+            (r"/demo", DemoHandler),
+            (r"/v1/answer", AnswerHandler)
             ]
 
 
